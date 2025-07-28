@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$BARDO - Rock to Blockchain Rhythm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&family=Big+Shoulders+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="vinyl-disc">
+                <i class="fas fa-music"></i>
+            </div>
+            <h2>Loading $BARDO...</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-image">
+                    <img src="assets/logo.svg" alt="Bardo Logo">
+                </div>
+                <span>$BARDO</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#token" class="nav-link">Token</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#how-to-buy" class="nav-link">How to Buy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Media</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#roadmap" class="nav-link">Roadmap</a>
+                </li>
+            </ul>
+                                <button class="btn-neon cta-button">
+                        <span>Get $Bardo</span>
+                    </button>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-frame">
+                <div class="hero-image">
+                    <!-- <img src="assets/hero.png" alt="Bardo Hero Background"> -->
+                </div>
+                
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2 class="hero-subtitle">Bacardo's Pump.fun Debut Concert!</h2>
+                        <h1 class="hero-title">LIVE NOW</h1>
+                    </div>
+                </div>
+                
+                <div class="hero-button">
+                    <button class="btn-neon buy-now-btn">
+                        <span>Buy Now</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Token Info Section -->
+    <section id="token" class="token-section">
+        <div class="container">
+            <h2 class="section-title">Token Info</h2>
+            
+            <div class="token-marquee">
+                <div class="marquee-content">
+                    <span>No Taxes / No BS / Just Rocking to Blockchain Rhythm</span>
+                    <span>No Taxes / No BS / Just Rocking to Blockchain Rhythm</span>
+                </div>
+            </div>
+            
+            <div class="token-info-grid">
+                <div class="token-card amp-shaped">
+                    <div class="card-header">
+                        <i class="fas fa-coins"></i>
+                        <h3>Contract Address</h3>
+                    </div>
+                    <div class="contract-address">
+                        <code id="contract-address">0x1234567890abcdef1234567890abcdef12345678</code>
+                        <button class="copy-btn" onclick="copyContractAddress()">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="token-card vinyl-shaped">
+                    <div class="card-header">
+                        <i class="fas fa-compact-disc"></i>
+                        <h3>Total Supply</h3>
+                    </div>
+                    <div class="supply-info">
+                        <div class="spinning-coin">
+                            <span class="supply-number">10,000,000,000</span>
+                            <span class="supply-symbol">$BARDO</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="token-card guitar-pick-shaped">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Tokenomics</h3>
+                    </div>
+                    <div class="tokenomics-list">
+                        <div class="tokenomics-item">
+                            <span class="label">Taxes</span>
+                            <span class="value">0%</span>
+                        </div>
+                        <div class="tokenomics-item">
+                            <span class="label">Liquidity</span>
+                            <span class="value">100%</span>
+                        </div>
+                        <div class="tokenomics-item">
+                            <span class="label">Marketing</span>
+                            <span class="value">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy Section -->
+    <section id="how-to-buy" class="how-to-buy-section">
+        <div class="container">
+            <h2 class="section-title">How to Buy $BARDO</h2>
+            
+            <div class="buy-steps">
+                <div class="guitar-neck">
+                    <div class="fret-marker"></div>
+                    <div class="fret-marker"></div>
+                    <div class="fret-marker"></div>
+                    <div class="fret-marker"></div>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-card backstage-pass" data-step="1">
+                        <div class="step-front">
+                            <div class="step-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <h3>Step 1</h3>
+                            <p>Get a Wallet</p>
+                        </div>
+                        <div class="step-back">
+                            <h4>Download MetaMask</h4>
+                            <p>Install MetaMask or any Web3 wallet to store your $BARDO tokens</p>
+                            <a href="#" class="step-link">Get MetaMask</a>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card vinyl-record" data-step="2">
+                        <div class="step-front">
+                            <div class="step-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <h3>Step 2</h3>
+                            <p>Buy ETH</p>
+                        </div>
+                        <div class="step-back">
+                            <h4>Purchase ETH</h4>
+                            <p>Buy ETH from any exchange and send it to your wallet</p>
+                            <a href="#" class="step-link">Buy ETH</a>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card backstage-pass" data-step="3">
+                        <div class="step-front">
+                            <div class="step-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <h3>Step 3</h3>
+                            <p>Swap on DEX</p>
+                        </div>
+                        <div class="step-back">
+                            <h4>Use Uniswap</h4>
+                            <p>Connect your wallet to Uniswap and swap ETH for $BARDO</p>
+                            <a href="#" class="step-link">Go to Uniswap</a>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card vinyl-record" data-step="4">
+                        <div class="step-front">
+                            <div class="step-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3>Step 4</h3>
+                            <p>HODL & Rock</p>
+                        </div>
+                        <div class="step-back">
+                            <h4>Join the Community</h4>
+                            <p>Hold your $BARDO tokens and join our rockstar community</p>
+                            <a href="#" class="step-link">Join Discord</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Concert Archive</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item vinyl-cover" data-video="video1">
+                    <div class="cover-art">
+                        <img src="https://via.placeholder.com/300x300/1a1a1a/00ff00?text=Concert+1" alt="Concert 1">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <h3>First Concert</h3>
+                    <p>Live from the meme stage</p>
+                </div>
+                
+                <div class="gallery-item concert-poster" data-video="video2">
+                    <div class="cover-art">
+                        <img src="https://via.placeholder.com/300x400/1a1a1a/ff00ff?text=Poster+1" alt="Poster 1">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <h3>World Tour</h3>
+                    <p>Blockchain rhythm tour</p>
+                </div>
+                
+                <div class="gallery-item vinyl-cover" data-video="video3">
+                    <div class="cover-art">
+                        <img src="https://via.placeholder.com/300x300/1a1a1a/ffff00?text=Album+1" alt="Album 1">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <h3>Meme Album</h3>
+                    <p>Greatest hits collection</p>
+                </div>
+                
+                <div class="gallery-item concert-poster" data-video="video4">
+                    <div class="cover-art">
+                        <img src="https://via.placeholder.com/300x400/1a1a1a/00ffff?text=Poster+2" alt="Poster 2">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <h3>Decentralized Stage</h3>
+                    <p>Community concert</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap-section">
+        <div class="container">
+            <h2 class="section-title">World Tour Roadmap</h2>
+            
+            <div class="roadmap-timeline">
+                <div class="tour-poster phase-1" data-phase="1">
+                    <div class="poster-front">
+                        <div class="poster-bg">
+                            <h3>Phase I</h3>
+                            <h4>Rock in the Trenches</h4>
+                            <div class="poster-details">
+                                <p>Token Launch</p>
+                                <p>Community Building</p>
+                                <p>Initial Marketing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="poster-back">
+                        <h4>Phase I Details</h4>
+                        <ul>
+                            <li>Token launch on Ethereum</li>
+                            <li>Community building on Discord & Telegram</li>
+                            <li>Initial marketing campaigns</li>
+                            <li>Website and social media setup</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tour-poster phase-2" data-phase="2">
+                    <div class="poster-front">
+                        <div class="poster-bg">
+                            <h3>Phase II</h3>
+                            <h4>Rockstar Parade in the Jungle</h4>
+                            <div class="poster-details">
+                                <p>CEX Listings</p>
+                                <p>Partnerships</p>
+                                <p>Expanded Marketing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="poster-back">
+                        <h4>Phase II Details</h4>
+                        <ul>
+                            <li>Major CEX listings</li>
+                            <li>Strategic partnerships</li>
+                            <li>Expanded marketing reach</li>
+                            <li>Community growth initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tour-poster phase-3" data-phase="3">
+                    <div class="poster-front">
+                        <div class="poster-bg">
+                            <h3>Phase III</h3>
+                            <h4>Rock to Blockchain Rhythm</h4>
+                            <div class="poster-details">
+                                <p>DeFi Integration</p>
+                                <p>Staking Platform</p>
+                                <p>NFT Collection</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="poster-back">
+                        <h4>Phase III Details</h4>
+                        <ul>
+                            <li>DeFi platform integration</li>
+                            <li>Staking and yield farming</li>
+                            <li>NFT collection launch</li>
+                            <li>Advanced tokenomics</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tour-poster phase-4" data-phase="4">
+                    <div class="poster-front">
+                        <div class="poster-bg">
+                            <h3>Phase IV</h3>
+                            <h4>Rock to Decentralize Skies</h4>
+                            <div class="poster-details">
+                                <p>DAO Governance</p>
+                                <p>Cross-chain Bridge</p>
+                                <p>Metaverse Integration</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="poster-back">
+                        <h4>Phase IV Details</h4>
+                        <ul>
+                            <li>DAO governance implementation</li>
+                            <li>Cross-chain bridge development</li>
+                            <li>Metaverse integration</li>
+                            <li>Global expansion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>$BARDO</h4>
+                    <p>Rock to Blockchain Rhythm</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-reddit"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#token">Token Info</a></li>
+                        <li><a href="#how-to-buy">How to Buy</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Whitepaper</a></li>
+                        <li><a href="#">Audit Report</a></li>
+                        <li><a href="#">Community Guidelines</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 $BARDO. Rock to Blockchain Rhythm. Built with <i class="fas fa-heart"></i> and Docker</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <video id="modalVideo" controls>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
