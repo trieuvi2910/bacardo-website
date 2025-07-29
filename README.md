@@ -1,289 +1,290 @@
-# Bardo - Docker Deployment
+# $Bardo - Rocking to Blockchain Rhythm 🎸
 
-Website mẫu được xây dựng với Docker và Nginx, tối ưu hóa cho hiệu suất và khả năng mở rộng.
+A modern, responsive cryptocurrency website for $Bardo token, featuring a dark theme with neon accents and interactive elements. Built with HTML5, CSS3, and vanilla JavaScript.
 
-## 🚀 Tính năng
+![$Bardo Website](https://img.shields.io/badge/Status-Live-brightgreen)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-- ✅ Docker containerization
-- ✅ Nginx web server
-- ✅ Responsive design
-- ✅ Modern UI/UX
-- ✅ Performance optimized
-- ✅ Mobile-first approach
-- ✅ Smooth animations
-- ✅ Form validation
-- ✅ Notification system
+## 🎯 Features
 
-## 📁 Cấu trúc dự án
+### ✨ Design & UI
+- **Dark Theme**: Sleek dark background with neon purple and cyan accents
+- **Responsive Design**: Fully responsive across all devices (desktop, tablet, mobile)
+- **Modern Typography**: Big Shoulders Display font family for bold, impactful text
+- **Smooth Animations**: CSS animations and transitions for enhanced user experience
+- **Glass Morphism**: Backdrop blur effects and transparent elements
+
+### 🎮 Interactive Elements
+- **Flip Cards**: Interactive step cards with 3D flip animations
+- **Expandable Roadmap**: Click-to-expand timeline sections
+- **Music Player**: Interactive music player controls with hover effects
+- **Copy Functionality**: One-click copy for token addresses
+- **Smooth Scrolling**: Seamless navigation between sections
+
+### 📱 Mobile Optimized
+- **Mobile Menu**: Hamburger menu for mobile navigation
+- **Touch Interactions**: Optimized for touch devices
+- **Responsive Grid**: Adaptive layouts for different screen sizes
+- **Performance**: Optimized loading and smooth scrolling
+
+### 🎨 Visual Effects
+- **Neon Glow**: Glowing effects on buttons and interactive elements
+- **Parallax Scrolling**: Subtle parallax effects for depth
+- **Hover Animations**: Interactive hover states throughout
+- **Loading States**: Smooth loading transitions
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Local web server (optional, for development)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/bardo-website.git
+   cd bardo-website
+   ```
+
+2. **Open the project**
+   ```bash
+   # Using Python (if installed)
+   python -m http.server 8000
+   
+   # Using Node.js (if installed)
+   npx serve src
+   
+   # Or simply open src/index.html in your browser
+   ```
+
+3. **View the website**
+   - Navigate to `http://localhost:8000` (if using server)
+   - Or open `src/index.html` directly in your browser
+
+## 📁 Project Structure
 
 ```
-bardo-project/
-├── Dockerfile
-├── docker-compose.yml
-├── nginx.conf
-├── .dockerignore
-├── env.example
-├── Makefile
-├── README.md
+bardo-website/
 ├── src/
-│   ├── index.html
+│   ├── index.html          # Main HTML file
 │   ├── css/
-│   │   └── style.css
+│   │   └── style.css       # Main stylesheet
 │   ├── js/
-│   │   └── script.js
-│   └── assets/
-└── scripts/
-    ├── build.sh
-    ├── deploy.sh
-    └── start.sh
+│   │   └── script.js       # JavaScript functionality
+│   └── assets/             # Images and media files
+│       ├── logo.svg
+│       ├── hero.png
+│       ├── token1.png
+│       ├── token2.png
+│       ├── token3.png
+│       ├── copy.png
+│       ├── diamon.png
+│       ├── at.png
+│       ├── 2.png
+│       ├── 3.png
+│       └── placeholder.txt
+├── README.md               # Project documentation
+└── .gitignore             # Git ignore file
 ```
 
-## 🛠️ Cài đặt và chạy
+## 🎨 Design System
 
-### Yêu cầu hệ thống
-- Docker
-- Docker Compose
+### Color Palette
+- **Primary Background**: `#090c1c` (Dark Blue)
+- **Secondary Background**: `#0f0a28` (Darker Blue)
+- **Neon Purple**: `#8e2de2` (Purple Accent)
+- **Neon Cyan**: `#00ffff` (Cyan Accent)
+- **Neon Pink**: `#ff2e63` (Pink Accent)
+- **White Text**: `#f8f8ff` (Off White)
 
-### Khởi động lần đầu
+### Typography
+- **Primary Font**: Big Shoulders Display (Google Fonts)
+- **Weights**: 400 (Regular), 700 (Bold), 800 (Extra Bold), 900 (Black)
+- **Fallback**: Sans-serif
 
-1. **Clone hoặc tạo project**
-```bash
-git clone <your-repo>
-cd bardo-project
+### Spacing
+- **Container Max Width**: 1200px
+- **Section Padding**: 100px vertical
+- **Element Gaps**: 20px, 40px, 60px (responsive)
+
+## 🎯 Sections Overview
+
+### 1. Navigation
+- Fixed header with backdrop blur
+- Logo and navigation links
+- CTA button with neon glow effect
+
+### 2. Hero Section
+- Full-screen video/background
+- "LIVE NOW" badge
+- Concert information
+- Buy Now button
+
+### 3. Token Section
+- Token information card
+- Contract address with copy functionality
+- Platform links (Pump Fun, Raydium, Dexscreener)
+- Token features display
+
+### 4. How to Buy
+- Interactive step cards with flip animations
+- 4-step process visualization
+- Arrow indicators between steps
+
+### 5. Media Gallery
+- Grid layout with featured item
+- Play button overlay
+- See More button
+
+### 6. Tokenomics
+- Tokenomics information display
+- Interactive music player
+- Background image integration
+
+### 7. Roadmap
+- Timeline layout with expandable sections
+- Phase information with dates
+- Click-to-expand functionality
+
+### 8. Footer
+- Logo and navigation links
+- Social media icons
+- CTA button
+
+## 🛠️ Customization
+
+### Adding New Sections
+1. Add HTML structure in `index.html`
+2. Add corresponding CSS in `style.css`
+3. Add JavaScript functionality in `script.js`
+
+### Modifying Colors
+Update CSS custom properties in `style.css`:
+```css
+:root {
+    --primary-bg: #090c1c;
+    --neon-purple: #8e2de2;
+    --neon-cyan: #00ffff;
+    --neon-pink: #ff2e63;
+}
 ```
 
-2. **Copy environment file**
-```bash
-cp env.example .env
+### Adding Animations
+Use the existing animation classes or create new ones:
+```css
+.animate-in {
+    animation: fadeInUp 0.6s ease forwards;
+}
 ```
 
-3. **Build và start**
-```bash
-make build
-make start
-```
+## 📱 Browser Support
 
-4. **Truy cập website**
-```
-http://localhost:80
-```
+- ✅ Chrome (latest)
+- ✅ Firefox (latest)
+- ✅ Safari (latest)
+- ✅ Edge (latest)
+- ✅ Mobile browsers
 
-### Development workflow
+## 🚀 Performance Features
 
-```bash
-# Chế độ development
-make dev
+- **Optimized Images**: Compressed and optimized assets
+- **CSS Animations**: Hardware-accelerated animations
+- **Smooth Scrolling**: Native smooth scroll behavior
+- **Lazy Loading**: Images load as needed
+- **Minified Code**: Production-ready code structure
 
-# Xem logs
-make logs
+## 🎵 Interactive Features
 
-# Restart khi có thay đổi
-make restart
-```
+### Step Cards
+- Click to flip and reveal additional information
+- Hover effects for enhanced interaction
+- Mobile touch support
 
-### Production deployment
+### Music Player
+- Play/pause functionality
+- Control buttons with hover effects
+- Visual feedback on interaction
 
-```bash
-# Deploy lên production
-make deploy
+### Copy Functionality
+- One-click copy for addresses
+- Visual feedback with animations
+- Cross-browser compatibility
 
-# Hoặc sử dụng script trực tiếp
-./scripts/deploy.sh production
-```
+### Expandable Roadmap
+- Click to expand/collapse sections
+- Smooth height transitions
+- Maintains timeline visual flow
 
-## 📋 Các lệnh có sẵn
-
-| Lệnh | Mô tả |
-|------|-------|
-| `make build` | Build Docker image |
-| `make start` | Khởi động containers |
-| `make stop` | Dừng containers |
-| `make restart` | Restart containers |
-| `make logs` | Xem logs |
-| `make clean` | Dọn dẹp containers và images |
-| `make deploy` | Deploy lên production |
-| `make dev` | Khởi động development environment |
-
-## 🔧 Cấu hình
-
-### Environment Variables
-
-Tạo file `.env` từ `env.example`:
-
-```bash
-# Database
-DB_ROOT_PASSWORD=strongpassword
-DB_NAME=website_db
-DB_USER=website_user
-DB_PASSWORD=userpassword
-
-# Application
-NODE_ENV=production
-PORT=3000
-
-# Domain
-DOMAIN=bardo.com
-
-### Nginx Configuration
-
-File `nginx.conf` đã được tối ưu hóa với:
-- Gzip compression
-- Static file caching
-- Security headers
-- Performance optimizations
-
-## 🎨 Customization
-
-### Thay đổi nội dung
-
-1. **HTML**: Chỉnh sửa `src/index.html`
-2. **CSS**: Chỉnh sửa `src/css/style.css`
-3. **JavaScript**: Chỉnh sửa `src/js/script.js`
-
-### Thay đổi cấu hình Docker
-
-1. **Dockerfile**: Chỉnh sửa `Dockerfile`
-2. **Docker Compose**: Chỉnh sửa `docker-compose.yml`
-3. **Nginx**: Chỉnh sửa `nginx.conf`
-
-## 📊 Performance
-
-Website được tối ưu hóa với:
-- ✅ Gzip compression
-- ✅ Static file caching
-- ✅ Minified assets
-- ✅ Optimized images
-- ✅ Lazy loading
-- ✅ CDN ready
-
-## 🔒 Security
-
-- ✅ HTTPS ready
-- ✅ Security headers
-- ✅ Input validation
-- ✅ XSS protection
-- ✅ CSRF protection
-
-## 📱 Responsive Design
-
-Website hoạt động tốt trên:
-- ✅ Desktop (1920px+)
-- ✅ Laptop (1366px)
-- ✅ Tablet (768px)
-- ✅ Mobile (480px)
-
-## 🚀 Deployment
+## 🔧 Development
 
 ### Local Development
-```bash
-make dev
-```
+1. Clone the repository
+2. Open `src/index.html` in your browser
+3. Use browser dev tools for debugging
+4. Make changes and refresh to see updates
 
-### Staging
-```bash
-./scripts/deploy.sh staging
-```
+### Code Style
+- **HTML**: Semantic HTML5 structure
+- **CSS**: BEM methodology for class naming
+- **JavaScript**: ES6+ features with fallbacks
 
-### Production
-```bash
-make deploy
-```
+### File Organization
+- **HTML**: Semantic structure with clear sections
+- **CSS**: Organized by component and responsive breakpoints
+- **JavaScript**: Modular functions with clear naming
 
-## 📈 Monitoring
+## 🎨 Design Principles
 
-### Logs
-```bash
-make logs
-```
+### Accessibility
+- Semantic HTML structure
+- Keyboard navigation support
+- Focus management
+- Screen reader compatibility
 
-### Container Status
-```bash
-docker-compose ps
-```
+### User Experience
+- Intuitive navigation
+- Clear call-to-actions
+- Responsive design
+- Fast loading times
 
-### Resource Usage
-```bash
-docker stats
-```
+### Visual Hierarchy
+- Clear typography scale
+- Consistent spacing
+- Logical content flow
+- Visual feedback on interactions
 
-## 🔄 CI/CD
+## 📈 Future Enhancements
 
-### GitHub Actions Example
-
-```yaml
-name: Deploy to Production
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to server
-        run: |
-          make build
-          make deploy
-```
-
-## 🐛 Troubleshooting
-
-### Container không start
-```bash
-# Kiểm tra logs
-docker-compose logs
-
-# Kiểm tra port
-netstat -tulpn | grep :80
-```
-
-### Permission issues
-```bash
-# Chạy với sudo (Linux/Mac)
-sudo make start
-
-# Hoặc thêm user vào docker group
-sudo usermod -aG docker $USER
-```
-
-### Build fails
-```bash
-# Clean và rebuild
-make clean
-make build
-```
-
-### Static files (CSS/JS) không load được (404 error)
-```bash
-# Vấn đề: Nginx sử dụng cấu hình mặc định thay vì cấu hình tùy chỉnh
-# Giải pháp: Đã được fix trong Dockerfile và nginx.conf
-
-# Nếu gặp lại, rebuild container:
-docker-compose down
-docker-compose build --no-cache
-docker-compose up -d
-```
-
-## 📞 Support
-
-- 📧 Email: info@bardo.com
-- 📱 Phone: +84 123 456 789
-- 🌐 Website: https://bardo.com
-
-## 📄 License
-
-MIT License - xem file [LICENSE](LICENSE) để biết thêm chi tiết.
+- [ ] Video integration for hero section
+- [ ] Real-time token price display
+- [ ] Social media feed integration
+- [ ] Multi-language support
+- [ ] Dark/light theme toggle
+- [ ] Advanced animations
+- [ ] PWA capabilities
+- [ ] Analytics integration
 
 ## 🤝 Contributing
 
-1. Fork project
-2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Tạo Pull Request
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test across different browsers
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🎸 About $Bardo
+
+$Bardo is a cryptocurrency token that combines the energy of rock music with blockchain technology. The website reflects this unique fusion with its bold design, interactive elements, and rock-inspired aesthetic.
 
 ---
 
-**Built with ❤️ and Docker** 
+**Built with ❤️ and 🎸 for the $Bardo community**
+
+*Rock to Blockchain Rhythm* 🤘 

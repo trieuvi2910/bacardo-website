@@ -1,597 +1,463 @@
-// Chiều cao viewport hiện tại
-const viewportHeight = window.innerHeight;
-console.log(viewportHeight + 'px');
-
-// Chiều cao có thể sử dụng (trừ browser UI)
-const availableHeight = screen.availHeight;
-console.log(availableHeight + 'px');
-// Loading Screen
-window.addEventListener('load', () => {
-    const loadingScreen = document.querySelector('.loading-screen');
-    setTimeout(() => {
-        loadingScreen.classList.add('hidden');
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
-    }, 2000);
+// DOM Content Loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all functionality
+    initSmoothScrolling();
+    initCopyFunctionality();
+    initStepCards();
+    initExpandButtons();
+    initMusicPlayer();
+    initMobileMenu();
+    initAnimations();
+    initParallaxEffects();
 });
 
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
-
-// Smooth scrolling for navigation links
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}
-
-// Navbar background change on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        // navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-        // navbar.style.boxShadow = '0 2px 20px rgba(0, 255, 0, 0.1)';
-    } else {
-        // navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-// Active navigation link highlighting
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+// Smooth Scrolling for Navigation Links
+function initSmoothScrolling() {
+    const navLinks = document.querySelectorAll('.nav-link, .footer-nav a');
     
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Copy contract address
-function copyContractAddress() {
-    const contractAddress = document.getElementById('contract-address').textContent;
-    navigator.clipboard.writeText(contractAddress).then(() => {
-        showNotification('Contract address copied to clipboard!', 'success');
-    }).catch(() => {
-        showNotification('Failed to copy address', 'error');
-    });
-}
-
-// Copy token address
-function copyTokenAddress() {
-    const tokenAddress = document.querySelector('.address-text span').textContent;
-    navigator.clipboard.writeText(tokenAddress).then(() => {
-        showNotification('Token address copied to clipboard!', 'success');
-    }).catch(() => {
-        showNotification('Failed to copy address', 'error');
-    });
-}
-
-// Add event listener for token address copy button
-document.addEventListener('DOMContentLoaded', () => {
-    const copyButton = document.querySelector('.copy-button');
-    if (copyButton) {
-        copyButton.addEventListener('click', copyTokenAddress);
-    }
-});
-
-// Step cards flip animation
-document.querySelectorAll('.step-card').forEach(card => {
-    card.addEventListener('click', () => {
-        card.style.transform = card.style.transform === 'rotateY(180deg)' 
-            ? 'rotateY(0deg)' 
-            : 'rotateY(180deg)';
-    });
-});
-
-// Tour poster flip animation
-document.querySelectorAll('.tour-poster').forEach(poster => {
-    poster.addEventListener('click', () => {
-        poster.style.transform = poster.style.transform === 'rotateY(180deg)' 
-            ? 'rotateY(0deg)' 
-            : 'rotateY(180deg)';
-    });
-});
-
-// Gallery video modal
-const videoModal = document.getElementById('videoModal');
-const modalVideo = document.getElementById('modalVideo');
-const closeModal = document.querySelector('.close-modal');
-
-document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const videoId = item.getAttribute('data-video');
-        // In a real implementation, you would set the video source here
-        // modalVideo.src = `videos/${videoId}.mp4`;
-        modalVideo.src = 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4';
-        videoModal.style.display = 'block';
-        modalVideo.play();
-    });
-});
-
-closeModal.addEventListener('click', () => {
-    videoModal.style.display = 'none';
-    modalVideo.pause();
-    modalVideo.src = '';
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target === videoModal) {
-        videoModal.style.display = 'none';
-        modalVideo.pause();
-        modalVideo.src = '';
-    }
-});
-
-// Parallax effects
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.stage-lights, .smoke-effect, .crowd-silhouettes');
-    
-    parallaxElements.forEach((element, index) => {
-        const speed = 0.5 + (index * 0.1);
-        const yPos = -(scrolled * speed);
-        element.style.transform = `translateY(${yPos}px)`;
-    });
-});
-
-// Meme character interactions
-document.querySelectorAll('.meme-character').forEach(character => {
-    character.addEventListener('click', () => {
-        character.style.transform = 'scale(1.5) rotate(360deg)';
-        character.style.transition = 'all 0.5s ease';
-        
-        // Create flying coin effect
-        createFlyingCoin(character);
-        
-        setTimeout(() => {
-            character.style.transform = 'scale(1) rotate(0deg)';
-        }, 500);
-    });
-});
-
-// Create flying coin animation
-function createFlyingCoin(element) {
-    const coin = document.createElement('div');
-    coin.innerHTML = '🪙';
-    coin.style.position = 'absolute';
-    coin.style.fontSize = '2rem';
-    coin.style.pointerEvents = 'none';
-    coin.style.zIndex = '1000';
-    coin.style.transition = 'all 1s ease';
-    
-    const rect = element.getBoundingClientRect();
-    coin.style.left = rect.left + 'px';
-    coin.style.top = rect.top + 'px';
-    
-    document.body.appendChild(coin);
-    
-    setTimeout(() => {
-        coin.style.transform = 'translateY(-100px) rotate(360deg)';
-        coin.style.opacity = '0';
-    }, 100);
-    
-    setTimeout(() => {
-        document.body.removeChild(coin);
-    }, 1100);
-}
-
-// Token card hover effects
-document.querySelectorAll('.token-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.05)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Spinning coin animation
-document.querySelectorAll('.spinning-coin').forEach(coin => {
-    coin.addEventListener('mouseenter', () => {
-        coin.style.animationDuration = '1s';
-    });
-    
-    coin.addEventListener('mouseleave', () => {
-        coin.style.animationDuration = '4s';
-    });
-});
-
-// Guitar neck fret markers glow
-document.querySelectorAll('.fret-marker').forEach((marker, index) => {
-    marker.addEventListener('mouseenter', () => {
-        marker.style.boxShadow = '0 0 20px var(--neon-yellow)';
-        marker.style.transform = 'translateY(-50%) scale(1.2)';
-    });
-    
-    marker.addEventListener('mouseleave', () => {
-        marker.style.boxShadow = '0 0 10px var(--neon-yellow)';
-        marker.style.transform = 'translateY(-50%) scale(1)';
-    });
-});
-
-// Marquee text effect
-const marqueeContent = document.querySelector('.marquee-content');
-if (marqueeContent) {
-    // Tạo hiệu ứng carousel thực sự
-    function createCarouselEffect() {
-        const itemWidth = 150; // Chiều rộng mỗi item
-        const containerWidth = marqueeContent.parentElement.offsetWidth;
-        
-        // Xóa tất cả item hiện tại
-        marqueeContent.innerHTML = '';
-        
-        // Tính toán số item cần thiết để lấp đầy container (3x để đảm bảo seamless ở cả hai chiều)
-        const neededItems = Math.ceil((containerWidth * 3) / itemWidth);
-        
-        // Tạo đủ item
-        for (let i = 0; i < neededItems; i++) {
-            const newItem = document.createElement('div');
-            newItem.className = 'marquee-item';
-            newItem.innerHTML = `
-                <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                <span>$BARDO</span>
-            `;
-            marqueeContent.appendChild(newItem);
-        }
-    }
-    
-    // Chạy khi trang load và khi resize
-    createCarouselEffect();
-    window.addEventListener('resize', createCarouselEffect);
-    
-    marqueeContent.addEventListener('mouseenter', () => {
-        marqueeContent.style.animationPlayState = 'paused';
-        // Also pause logo spinning
-        const logos = marqueeContent.querySelectorAll('.marquee-logo');
-        logos.forEach(logo => {
-            logo.style.animationPlayState = 'paused';
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
+}
+
+// Copy Address Functionality
+function initCopyFunctionality() {
+    const copyBtn = document.querySelector('.copy-btn');
     
-    marqueeContent.addEventListener('mouseleave', () => {
-        marqueeContent.style.animationPlayState = 'running';
-        // Resume logo spinning
-        const logos = marqueeContent.querySelectorAll('.marquee-logo');
-        logos.forEach(logo => {
-            logo.style.animationPlayState = 'running';
-        });
-    });
-    
-    // Add click effect to marquee items
-    const marqueeItems = marqueeContent.querySelectorAll('.marquee-item');
-    marqueeItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // Create a ripple effect
-            const ripple = document.createElement('div');
-            ripple.style.cssText = `
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(0, 255, 0, 0.3);
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-            `;
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            const addressText = document.querySelector('.address-text');
+            const address = addressText ? addressText.textContent : 'Abcd...123456';
             
-            const rect = item.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = (rect.width / 2 - size / 2) + 'px';
-            ripple.style.top = (rect.height / 2 - size / 2) + 'px';
+            // Create temporary textarea to copy text
+            const textarea = document.createElement('textarea');
+            textarea.value = address;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
             
-            item.style.position = 'relative';
-            item.appendChild(ripple);
+            // Show feedback
+            showNotification('Address copied to clipboard!', 'success');
             
+            // Add visual feedback
+            this.style.transform = 'scale(1.2)';
             setTimeout(() => {
-                if (ripple.parentNode) {
-                    ripple.parentNode.removeChild(ripple);
-                }
-            }, 600);
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+    }
+}
+
+// Step Cards Flip Animation
+function initStepCards() {
+    const stepCards = document.querySelectorAll('.step-card');
+    
+    stepCards.forEach(card => {
+        card.addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+        
+        // Add hover effect for mobile
+        card.addEventListener('touchstart', function() {
+            this.classList.add('hover');
+        });
+        
+        card.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.classList.remove('hover');
+            }, 300);
+        });
+    });
+}
+
+// Expand Buttons for Roadmap
+function initExpandButtons() {
+    const expandBtns = document.querySelectorAll('.expand-btn');
+    
+    expandBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const timelineItem = this.closest('.timeline-item');
+            const content = timelineItem.querySelector('.timeline-content');
+            
+            // Toggle expanded state
+            timelineItem.classList.toggle('expanded');
+            
+            if (timelineItem.classList.contains('expanded')) {
+                this.textContent = 'Click to collapse';
+                content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+                this.textContent = 'Click to expand';
+                content.style.maxHeight = '0';
+            }
+        });
+    });
+}
+
+// Music Player Controls
+function initMusicPlayer() {
+    const playBtn = document.querySelector('.play-btn');
+    const controlBtns = document.querySelectorAll('.control-btn');
+    const optionBtns = document.querySelectorAll('.option-btn');
+    
+    if (playBtn) {
+        playBtn.addEventListener('click', function() {
+            this.classList.toggle('playing');
+            
+            if (this.classList.contains('playing')) {
+                this.querySelector('img').src = 'assets/pause.png'; // You'll need to add this asset
+            } else {
+                this.querySelector('img').src = 'assets/play.png'; // You'll need to add this asset
+            }
+        });
+    }
+    
+    controlBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Add click animation
+            this.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
         });
     });
     
-    // Thêm hiệu ứng chuyển chiều mượt mà
-    marqueeContent.addEventListener('animationiteration', () => {
-        console.log('Animation iteration completed - direction changed');
+    optionBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Add click animation
+            this.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
     });
+}
+
+// Mobile Menu Toggle
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
     
-    // Theo dõi animation để debug
-    let animationStartTime = Date.now();
-    setInterval(() => {
-        const elapsed = (Date.now() - animationStartTime) / 1000;
-        const currentTransform = marqueeContent.style.transform;
-        console.log(`Time: ${elapsed.toFixed(1)}s, Transform: ${currentTransform}`);
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.classList.toggle('active');
+        });
         
-        if (elapsed > 20) {
-            animationStartTime = Date.now();
-        }
-    }, 1000);
-}
-
-// Add ripple animation to CSS
-const rippleStyle = document.createElement('style');
-rippleStyle.textContent = `
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(rippleStyle);
-
-// Stage lights animation
-function animateStageLights() {
-    const stageLights = document.querySelector('.stage-lights-animated');
-    if (stageLights) {
-        setInterval(() => {
-            stageLights.style.filter = 'hue-rotate(' + Math.random() * 360 + 'deg)';
-        }, 2000);
-    }
-}
-
-// Crowd animation
-function animateCrowd() {
-    const crowd = document.querySelector('.crowd-memes');
-    if (crowd) {
-        setInterval(() => {
-            const characters = crowd.querySelectorAll('.meme-character');
-            characters.forEach(char => {
-                char.style.transform = `translateY(${Math.random() * 10 - 5}px)`;
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
             });
-        }, 1000);
+        });
     }
 }
 
-// Notification system
-function showNotification(message, type = 'info') {
-    // Remove existing notifications
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
+// Animations and Effects
+function initAnimations() {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
     
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.step-card, .media-item, .timeline-item, .token-card');
+    animateElements.forEach(el => observer.observe(el));
+    
+    // Parallax effect for hero section
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    });
+}
+
+// Parallax Effects
+function initParallaxEffects() {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        
+        // Parallax for background elements
+        const parallaxElements = document.querySelectorAll('.token-section, .media-section');
+        parallaxElements.forEach(element => {
+            const speed = 0.5;
+            element.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+}
+
+// Notification System
+function showNotification(message, type = 'info') {
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas ${getNotificationIcon(type)}"></i>
-            <span>${message}</span>
-        </div>
-        <button class="notification-close">
-            <i class="fas fa-times"></i>
-        </button>
-    `;
+    notification.textContent = message;
     
     // Add styles
     notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${getNotificationColor(type)};
-        color: white;
-        padding: 1rem 1.5rem;
+        background: ${type === 'success' ? '#00ff00' : '#ff2e63'};
+        color: #000;
+        padding: 15px 20px;
         border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border: 1px solid #8e2de2;
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
         z-index: 10000;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        max-width: 400px;
-        animation: slideIn 0.3s ease;
-        border: 2px solid var(--neon-green);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        font-weight: 700;
+        font-size: 16px;
     `;
     
-    // Add to page
     document.body.appendChild(notification);
     
-    // Close button functionality
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.addEventListener('click', () => {
-        notification.remove();
-    });
-    
-    // Auto remove after 5 seconds
+    // Animate in
     setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 5000);
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
 }
 
-function getNotificationIcon(type) {
-    switch (type) {
-        case 'success': return 'fa-check-circle';
-        case 'error': return 'fa-exclamation-circle';
-        case 'warning': return 'fa-exclamation-triangle';
-        default: return 'fa-info-circle';
-    }
-}
+// CTA Button Interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaButtons = document.querySelectorAll('.cta-button, .buy-now-btn, .see-more-btn, .footer-cta');
+    
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Add click animation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+            
+            // Show notification
+            showNotification('Coming soon! Join our community for updates.', 'info');
+        });
+    });
+});
 
-function getNotificationColor(type) {
-    switch (type) {
-        case 'success': return 'var(--neon-green)';
-        case 'error': return 'var(--rock-red)';
-        case 'warning': return 'var(--neon-yellow)';
-        default: return 'var(--neon-blue)';
-    }
-}
+// Media Gallery Interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const mediaItems = document.querySelectorAll('.media-item');
+    
+    mediaItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Add click effect
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+            
+            // If it's the featured item with play button
+            if (this.classList.contains('featured')) {
+                showNotification('Video player coming soon!', 'info');
+            }
+        });
+    });
+});
 
-// Add notification animations to CSS
+// Token Links Interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const linkItems = document.querySelectorAll('.link-item');
+    
+    linkItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const platform = this.querySelector('span').textContent;
+            showNotification(`Redirecting to ${platform}...`, 'info');
+            
+            // Add click animation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    });
+});
+
+// Social Media Links
+document.addEventListener('DOMContentLoaded', function() {
+    const socialLinks = document.querySelectorAll('.social-link');
+    
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            showNotification('Social media links coming soon!', 'info');
+        });
+    });
+});
+
+// Add CSS for animations
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes slideIn {
+    .step-card.flipped .step-front {
+        transform: rotateY(180deg);
+    }
+    
+    .step-card.flipped .step-back {
+        transform: rotateY(0deg);
+    }
+    
+    .timeline-item.expanded .timeline-content {
+        max-height: 500px;
+        transition: max-height 0.3s ease;
+    }
+    
+    .animate-in {
+        animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    @keyframes fadeInUp {
         from {
-            transform: translateX(100%);
             opacity: 0;
+            transform: translateY(30px);
         }
         to {
-            transform: translateX(0);
             opacity: 1;
+            transform: translateY(0);
         }
     }
     
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
+    .step-card.hover {
+        transform: translateY(-5px) scale(1.02);
     }
     
-    .notification-close {
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        padding: 0;
-        font-size: 1rem;
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
     }
     
-    .notification-content {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    @media (max-width: 768px) {
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 80px;
+            flex-direction: column;
+            background-color: rgba(15, 10, 40, 0.95);
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(142, 45, 226, 0.3);
+            padding: 2rem 0;
+        }
+        
+        .nav-menu.active {
+            left: 0;
+        }
     }
 `;
+
 document.head.appendChild(style);
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+// Performance optimization: Throttle scroll events
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
         }
+    }
+}
+
+// Apply throttling to scroll events
+window.addEventListener('scroll', throttle(() => {
+    // Scroll-based animations can go here
+}, 16)); // ~60fps
+
+// Add loading state for better UX
+window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+});
+
+// Error handling for missing assets
+window.addEventListener('error', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.target.style.display = 'none';
+        console.warn('Image failed to load:', e.target.src);
+    }
+});
+
+// Add keyboard navigation support
+document.addEventListener('keydown', function(e) {
+    // Escape key to close any open modals or menus
+    if (e.key === 'Escape') {
+        const navMenu = document.querySelector('.nav-menu');
+        const hamburger = document.querySelector('.hamburger');
+        
+        if (navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    }
+    
+    // Enter key for buttons
+    if (e.key === 'Enter' && e.target.tagName === 'BUTTON') {
+        e.target.click();
+    }
+});
+
+// Add focus management for accessibility
+document.addEventListener('DOMContentLoaded', function() {
+    const focusableElements = document.querySelectorAll('button, a, input, textarea, select');
+    
+    focusableElements.forEach(element => {
+        element.addEventListener('focus', function() {
+            this.style.outline = '2px solid #00ffff';
+            this.style.outlineOffset = '2px';
+        });
+        
+        element.addEventListener('blur', function() {
+            this.style.outline = 'none';
+        });
     });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.token-card, .step-card, .gallery-item, .tour-poster');
-    
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-    
-    // Start animations
-    animateStageLights();
-    animateCrowd();
-});
-
-// Keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-    // Escape key to close modal
-    if (e.key === 'Escape' && videoModal.style.display === 'block') {
-        videoModal.style.display = 'none';
-        modalVideo.pause();
-        modalVideo.src = '';
-    }
-    
-    // Space bar to pause/play video
-    if (e.key === ' ' && videoModal.style.display === 'block') {
-        e.preventDefault();
-        if (modalVideo.paused) {
-            modalVideo.play();
-        } else {
-            modalVideo.pause();
-        }
-    }
-});
-
-// Easter egg: Konami code
-let konamiCode = [];
-const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
-
-document.addEventListener('keydown', (e) => {
-    konamiCode.push(e.code);
-    if (konamiCode.length > konamiSequence.length) {
-        konamiCode.shift();
-    }
-    
-    if (konamiCode.join(',') === konamiSequence.join(',')) {
-        // Trigger rock concert mode
-        document.body.style.animation = 'rockConcert 2s ease-in-out';
-        showNotification('🎸 ROCK CONCERT MODE ACTIVATED! 🎸', 'success');
-        konamiCode = [];
-    }
-});
-
-// Add rock concert animation
-const rockConcertStyle = document.createElement('style');
-rockConcertStyle.textContent = `
-    @keyframes rockConcert {
-        0%, 100% { 
-            filter: hue-rotate(0deg) brightness(1);
-            transform: scale(1);
-        }
-        25% { 
-            filter: hue-rotate(90deg) brightness(1.2);
-            transform: scale(1.02);
-        }
-        50% { 
-            filter: hue-rotate(180deg) brightness(1.4);
-            transform: scale(1.05);
-        }
-        75% { 
-            filter: hue-rotate(270deg) brightness(1.2);
-            transform: scale(1.02);
-        }
-    }
-`;
-document.head.appendChild(rockConcertStyle);
-
-// Console welcome message
-console.log(`
-🎸 Welcome to $BARDO! 🎸
-🤘 Rock to Blockchain Rhythm 🤘
-🎵 Built with Docker & Nginx 🎵
-🎨 Modern UI/UX Design 🎨
-📱 Fully Responsive 📱
-⚡ Performance Optimized ⚡
-
-🎤 Ready to rock the crypto world! 🎤
-`); 
+}); 

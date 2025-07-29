@@ -1,0 +1,49 @@
+{
+  "name": "bardo-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive cryptocurrency website for $Bardo token with dark theme and neon accents",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "npx serve src -p 8000",
+    "dev": "npx live-server src --port=8000 --open=/index.html",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Deploy to your preferred hosting service'",
+    "lint": "echo 'No linting configured for static site'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "cryptocurrency",
+    "website",
+    "bardo",
+    "token",
+    "blockchain",
+    "responsive",
+    "dark-theme",
+    "neon",
+    "html5",
+    "css3",
+    "javascript"
+  ],
+  "author": "Bardo Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/bardo-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/bardo-website/issues"
+  },
+  "homepage": "https://bardo.com",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+} 

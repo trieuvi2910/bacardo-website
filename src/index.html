@@ -3,82 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$BARDO - Rock to Blockchain Rhythm</title>
+    <title>$Bardo - Rocking to Blockchain Rhythm</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&family=Big+Shoulders+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-        <div class="loading-content">
-            <div class="vinyl-disc">
-                <i class="fas fa-music"></i>
-            </div>
-            <h2>Loading $BARDO...</h2>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
-        </div>
-    </div>
-
     <!-- Navigation -->
-    <!-- <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <div class="logo-image">
-                    <img src="assets/logo.svg" alt="Bardo Logo">
-                </div>
-                <span>$BARDO</span>
+                <img src="assets/logo.svg" alt="$Bardo Logo" class="logo-img">
+                <span class="logo-text">$Bardo</span>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#token" class="nav-link">Token</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#how-to-buy" class="nav-link">How to Buy</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#gallery" class="nav-link">Media</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#roadmap" class="nav-link">Roadmap</a>
-                </li>
-            </ul>
-                                <button class="btn-neon cta-button">
-                        <span>Get $Bardo</span>
-                    </button>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-menu">
+                <a href="#token" class="nav-link">Token</a>
+                <a href="#how-to-buy" class="nav-link">How to Buy</a>
+                <a href="#media" class="nav-link">Media</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
             </div>
+            <button class="cta-button">Get $Bardo</button>
         </div>
-    </nav> -->
+    </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-container">
-            <div class="hero-frame">
-                <div class="hero-image">
-                    <img src="assets/hero.png" alt="Bardo Hero Background">
-                </div>
-                
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <div class="hero-subtitle">
-                            <h2 class="">Bacardo's Pump.fun</h2>
-                            <h4 style="margin-top: -16px;">Debut Concert!</h4>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-video">
+                <div class="video-container">
+                    <img src="assets/hero.png" alt="Hero Background" class="hero-bg">
+                    <div class="video-overlay">
+                        <div class="live-badge">
+                            <span class="live-text">LIVE NOW</span>
                         </div>
-                        <h1 class="hero-title">LIVE NOW</h1>
+                        <div class="concert-info">
+                            <h2>Bacardo's Pump.fun</h2>
+                            <p>Debut Concert!</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="hero-button">
-                    <button class="btn-neon buy-now-btn">
-                        <span>Buy Now</span>
-                    </button>
-                </div>
+                <button class="buy-now-btn">Buy Now</button>
             </div>
         </div>
     </section>
@@ -86,289 +49,158 @@
     <!-- Token Info Section -->
     <section id="token" class="token-section">
         <div class="container">
-            <!-- Token Navigation -->
-            <div class="token-nav">
-                <div class="token-nav-logo">
-                    <div class="token-logo-image">
-                        <img src="assets/logo.svg" alt="Bardo Logo">
-                    </div>
-                    <span>$BARDO</span>
+            <div class="token-card">
+                <h1 class="token-title">$BARDO</h1>
+                <div class="token-address">
+                    <span class="address-label">@</span>
+                    <span class="address-text">Abcd...123456</span>
+                    <button class="copy-btn">
+                        <img src="assets/copy.png" alt="Copy">
+                    </button>
                 </div>
-                <ul class="token-nav-menu">
-                    <li class="token-nav-item">
-                        <img src="assets/diamon.png" alt="Diamond" class="nav-diamond">
-                        <a href="#token" class="token-nav-link">Token</a>
-                    </li>
-                    <li class="token-nav-item active">
-                        <img src="assets/diamon.png" alt="Diamond" class="nav-diamond">
-                        <a href="#how-to-buy" class="token-nav-link">How to Buy</a>
-                    </li>
-                    <li class="token-nav-item">
-                        <img src="assets/diamon.png" alt="Diamond" class="nav-diamond">
-                        <a href="#gallery" class="token-nav-link">Media</a>
-                    </li>
-                    <li class="token-nav-item">
-                        <img src="assets/diamon.png" alt="Diamond" class="nav-diamond">
-                        <a href="#roadmap" class="token-nav-link">Roadmap</a>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="token-marquee">
-                <div class="marquee-content">
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
+                <div class="token-links">
+                    <div class="link-item">
+                        <img src="assets/token1.png" alt="Pump Fun">
+                        <span>Pump Fun</span>
                     </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
+                    <div class="link-item">
+                        <img src="assets/token2.png" alt="Raydium">
+                        <span>Raydium</span>
                     </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <!-- Bản sao của 4 item đầu để tạo hiệu ứng vòng tròn -->
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
-                        <span>$BARDO</span>
+                    <div class="link-item">
+                        <img src="assets/token3.png" alt="Dexscreener">
+                        <span>Dexscreener</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- Token Address Section -->
-            <div class="token-address-section">
-                <div class="token-address-container">
-                    <h2 class="token-title">$BARDO</h2>
-                    <div class="token-address-box">
-                        <div class="address-icon">
-                            <img src="assets/at.png" alt="At Icon" class="icon-image">
-                        </div>
-                        <div class="address-text">
-                            <span>Abcd...123456</span>
-                        </div>
-                        <button class="copy-button">
-                            <img src="assets/copy.png" alt="Copy Icon" class="icon-image">
-                        </button>
-                    </div>
-                    <div class="token-platforms">
-                        <div class="platform-item">
-                            <div class="platform-icon">
-                                <img src="assets/token1.png" alt="Token 1" class="icon-image">
-                            </div>
-                            <span>Pump Fun</span>
-                        </div>
-                        <div class="platform-item">
-                            <div class="platform-icon">
-                                <img src="assets/token2.png" alt="Token 2" class="icon-image">
-                            </div>
-                            <span>Raydium</span>
-                        </div>
-                        <div class="platform-item">
-                            <div class="platform-icon">
-                                <img src="assets/token3.png" alt="Token 3" class="icon-image">
-                            </div>
-                            <span>Dexscreener</span>
-                        </div>
-                    </div>
-                    <div class="token-feature">
-                        <span>No Taxes</span>
-                    </div>
+                <div class="token-features">
+                    <span class="feature">No Taxes</span>
+                    <span class="feature">No BS</span>
+                    <span class="feature">Just Rocking to Blockchain Rhythm</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How to Buy Section -->
-    <section id="how-to-buy" class="how-to-buy-section">
+    <section id="how-to-buy" class="how-to-buy">
         <div class="container">
-            <h2 class="section-title">How to Buy $BARDO</h2>
-            
-            <div class="buy-steps">
-                <div class="guitar-neck">
-                    <div class="fret-marker"></div>
-                    <div class="fret-marker"></div>
-                    <div class="fret-marker"></div>
-                    <div class="fret-marker"></div>
+            <h2 class="section-title">HOW TO BUY</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-front">
+                        <img src="assets/2.png" alt="Get Wallet">
+                        <h3>Get Wallet</h3>
+                    </div>
+                    <div class="step-back">
+                        <h3>Click Get Wallet</h3>
+                    </div>
                 </div>
-                
-                <div class="steps-container">
-                    <div class="step-card backstage-pass" data-step="1">
-                        <div class="step-front">
-                            <div class="step-icon">
-                                <i class="fas fa-wallet"></i>
-                            </div>
-                            <h3>Step 1</h3>
-                            <p>Get a Wallet</p>
-                        </div>
-                        <div class="step-back">
-                            <h4>Download MetaMask</h4>
-                            <p>Install MetaMask or any Web3 wallet to store your $BARDO tokens</p>
-                            <a href="#" class="step-link">Get MetaMask</a>
-                        </div>
+                <div class="step-arrow">
+                    <img src="assets/at.png" alt="Arrow">
+                </div>
+                <div class="step-card">
+                    <div class="step-front">
+                        <img src="assets/3.png" alt="Guy SOL">
+                        <h3>Guy SOL</h3>
                     </div>
-                    
-                    <div class="step-card vinyl-record" data-step="2">
-                        <div class="step-front">
-                            <div class="step-icon">
-                                <i class="fas fa-coins"></i>
-                            </div>
-                            <h3>Step 2</h3>
-                            <p>Buy ETH</p>
-                        </div>
-                        <div class="step-back">
-                            <h4>Purchase ETH</h4>
-                            <p>Buy ETH from any exchange and send it to your wallet</p>
-                            <a href="#" class="step-link">Buy ETH</a>
-                        </div>
+                    <div class="step-back">
+                        <h3>Click Guy SOL</h3>
                     </div>
-                    
-                    <div class="step-card backstage-pass" data-step="3">
-                        <div class="step-front">
-                            <div class="step-icon">
-                                <i class="fas fa-exchange-alt"></i>
-                            </div>
-                            <h3>Step 3</h3>
-                            <p>Swap on DEX</p>
-                        </div>
-                        <div class="step-back">
-                            <h4>Use Uniswap</h4>
-                            <p>Connect your wallet to Uniswap and swap ETH for $BARDO</p>
-                            <a href="#" class="step-link">Go to Uniswap</a>
-                        </div>
+                </div>
+                <div class="step-arrow">
+                    <img src="assets/at.png" alt="Arrow">
+                </div>
+                <div class="step-card">
+                    <div class="step-front">
+                        <img src="assets/diamon.png" alt="Buy on Pump.fun">
+                        <h3>Buy on Pump.fun</h3>
                     </div>
-                    
-                    <div class="step-card vinyl-record" data-step="4">
-                        <div class="step-front">
-                            <div class="step-icon">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <h3>Step 4</h3>
-                            <p>HODL & Rock</p>
-                        </div>
-                        <div class="step-back">
-                            <h4>Join the Community</h4>
-                            <p>Hold your $BARDO tokens and join our rockstar community</p>
-                            <a href="#" class="step-link">Join Discord</a>
-                        </div>
+                    <div class="step-back">
+                        <h3>Click Buy on Pump.fun</h3>
+                    </div>
+                </div>
+                <div class="step-arrow">
+                    <img src="assets/at.png" alt="Arrow">
+                </div>
+                <div class="step-card">
+                    <div class="step-front">
+                        <img src="assets/at.png" alt="Join Parade">
+                        <h3>Join Parade</h3>
+                    </div>
+                    <div class="step-back">
+                        <h3>Click Join Parade</h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
+    <!-- Media Gallery Section -->
+    <section id="media" class="media-section">
         <div class="container">
-            <h2 class="section-title">Concert Archive</h2>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item vinyl-cover" data-video="video1">
-                    <div class="cover-art">
-                        <img src="https://via.placeholder.com/300x300/1a1a1a/00ff00?text=Concert+1" alt="Concert 1">
-                        <div class="play-overlay">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <h3>First Concert</h3>
-                    <p>Live from the meme stage</p>
+            <h2 class="section-title">MEDIA GALLERY</h2>
+            <div class="media-grid">
+                <div class="media-item">
+                    <img src="assets/placeholder.txt" alt="Media 1">
                 </div>
-                
-                <div class="gallery-item concert-poster" data-video="video2">
-                    <div class="cover-art">
-                        <img src="https://via.placeholder.com/300x400/1a1a1a/ff00ff?text=Poster+1" alt="Poster 1">
-                        <div class="play-overlay">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <h3>World Tour</h3>
-                    <p>Blockchain rhythm tour</p>
+                <div class="media-item">
+                    <img src="assets/placeholder.txt" alt="Media 2">
                 </div>
-                
-                <div class="gallery-item vinyl-cover" data-video="video3">
-                    <div class="cover-art">
-                        <img src="https://via.placeholder.com/300x300/1a1a1a/ffff00?text=Album+1" alt="Album 1">
-                        <div class="play-overlay">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <h3>Meme Album</h3>
-                    <p>Greatest hits collection</p>
+                <div class="media-item">
+                    <img src="assets/placeholder.txt" alt="Media 3">
                 </div>
-                
-                <div class="gallery-item concert-poster" data-video="video4">
-                    <div class="cover-art">
-                        <img src="https://via.placeholder.com/300x400/1a1a1a/00ffff?text=Poster+2" alt="Poster 2">
-                        <div class="play-overlay">
-                            <i class="fas fa-play"></i>
+                <div class="media-item">
+                    <img src="assets/placeholder.txt" alt="Media 4">
+                </div>
+                <div class="media-item featured">
+                    <img src="assets/placeholder.txt" alt="Featured Media">
+                    <div class="play-button">
+                        <img src="assets/placeholder.txt" alt="Play">
+                    </div>
+                </div>
+            </div>
+            <button class="see-more-btn">SEE MORE</button>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="tokenomics-section">
+        <div class="container">
+            <h2 class="section-title">TOKENOMICS REVEAL</h2>
+            <div class="tokenomics-content">
+                <div class="tokenomics-image">
+                    <img src="assets/placeholder.txt" alt="Tokenomics">
+                </div>
+                <div class="tokenomics-info">
+                    <div class="info-text">
+                        <p>Total Supply : 10.000.000.000 $Bardo</p>
+                        <p>-</p>
+                        <p>No Taxes / Just Rocking</p>
+                    </div>
+                    <div class="music-player">
+                        <div class="player-controls">
+                            <button class="control-btn">
+                                <img src="assets/placeholder.txt" alt="Previous">
+                            </button>
+                            <button class="play-btn">
+                                <img src="assets/placeholder.txt" alt="Play">
+                            </button>
+                            <button class="control-btn">
+                                <img src="assets/placeholder.txt" alt="Next">
+                            </button>
+                        </div>
+                        <div class="player-options">
+                            <button class="option-btn">
+                                <img src="assets/placeholder.txt" alt="Settings">
+                            </button>
+                            <button class="option-btn">
+                                <img src="assets/placeholder.txt" alt="Shuffle">
+                            </button>
+                            <button class="option-btn">
+                                <img src="assets/placeholder.txt" alt="Repeat">
+                            </button>
                         </div>
                     </div>
-                    <h3>Decentralized Stage</h3>
-                    <p>Community concert</p>
                 </div>
             </div>
         </div>
@@ -377,99 +209,55 @@
     <!-- Roadmap Section -->
     <section id="roadmap" class="roadmap-section">
         <div class="container">
-            <h2 class="section-title">World Tour Roadmap</h2>
-            
+            <h2 class="section-title">ROAD MAP WITH EXPANDABLES</h2>
             <div class="roadmap-timeline">
-                <div class="tour-poster phase-1" data-phase="1">
-                    <div class="poster-front">
-                        <div class="poster-bg">
-                            <h3>Phase I</h3>
-                            <h4>Rock in the Trenches</h4>
-                            <div class="poster-details">
-                                <p>Token Launch</p>
-                                <p>Community Building</p>
-                                <p>Initial Marketing</p>
-                            </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="phase-image">
+                            <img src="assets/placeholder.txt" alt="Phase I">
+                        </div>
+                        <div class="phase-info">
+                            <h3>Phase I: Rock in the Trenches</h3>
+                            <p class="phase-date">July 2025</p>
                         </div>
                     </div>
-                    <div class="poster-back">
-                        <h4>Phase I Details</h4>
-                        <ul>
-                            <li>Token launch on Ethereum</li>
-                            <li>Community building on Discord & Telegram</li>
-                            <li>Initial marketing campaigns</li>
-                            <li>Website and social media setup</li>
-                        </ul>
-                    </div>
+                    <button class="expand-btn">Click to expand</button>
                 </div>
-                
-                <div class="tour-poster phase-2" data-phase="2">
-                    <div class="poster-front">
-                        <div class="poster-bg">
-                            <h3>Phase II</h3>
-                            <h4>Rockstar Parade in the Jungle</h4>
-                            <div class="poster-details">
-                                <p>CEX Listings</p>
-                                <p>Partnerships</p>
-                                <p>Expanded Marketing</p>
-                            </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="phase-image">
+                            <img src="assets/placeholder.txt" alt="Phase II">
+                        </div>
+                        <div class="phase-info">
+                            <h3>Phase II: Rockstar Parade in the Jungle</h3>
+                            <p class="phase-date">July 2025</p>
                         </div>
                     </div>
-                    <div class="poster-back">
-                        <h4>Phase II Details</h4>
-                        <ul>
-                            <li>Major CEX listings</li>
-                            <li>Strategic partnerships</li>
-                            <li>Expanded marketing reach</li>
-                            <li>Community growth initiatives</li>
-                        </ul>
-                    </div>
+                    <button class="expand-btn">Click to expand</button>
                 </div>
-                
-                <div class="tour-poster phase-3" data-phase="3">
-                    <div class="poster-front">
-                        <div class="poster-bg">
-                            <h3>Phase III</h3>
-                            <h4>Rock to Blockchain Rhythm</h4>
-                            <div class="poster-details">
-                                <p>DeFi Integration</p>
-                                <p>Staking Platform</p>
-                                <p>NFT Collection</p>
-                            </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="phase-image">
+                            <img src="assets/placeholder.txt" alt="Phase III">
+                        </div>
+                        <div class="phase-info">
+                            <h3>Phase III: Rock to Blockchain Rhythm</h3>
+                            <p class="phase-date">July 2025</p>
                         </div>
                     </div>
-                    <div class="poster-back">
-                        <h4>Phase III Details</h4>
-                        <ul>
-                            <li>DeFi platform integration</li>
-                            <li>Staking and yield farming</li>
-                            <li>NFT collection launch</li>
-                            <li>Advanced tokenomics</li>
-                        </ul>
-                    </div>
+                    <button class="expand-btn">Click to expand</button>
                 </div>
-                
-                <div class="tour-poster phase-4" data-phase="4">
-                    <div class="poster-front">
-                        <div class="poster-bg">
-                            <h3>Phase IV</h3>
-                            <h4>Rock to Decentralize Skies</h4>
-                            <div class="poster-details">
-                                <p>DAO Governance</p>
-                                <p>Cross-chain Bridge</p>
-                                <p>Metaverse Integration</p>
-                            </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="phase-image">
+                            <img src="assets/placeholder.txt" alt="Phase IV">
+                        </div>
+                        <div class="phase-info">
+                            <h3>Phase IV: Rock to Decentralize Skies</h3>
+                            <p class="phase-date">July 2025</p>
                         </div>
                     </div>
-                    <div class="poster-back">
-                        <h4>Phase IV Details</h4>
-                        <ul>
-                            <li>DAO governance implementation</li>
-                            <li>Cross-chain bridge development</li>
-                            <li>Metaverse integration</li>
-                            <li>Global expansion</li>
-                        </ul>
-                    </div>
+                    <button class="expand-btn">Click to expand</button>
                 </div>
             </div>
         </div>
@@ -479,56 +267,37 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>$BARDO</h4>
-                    <p>Rock to Blockchain Rhythm</p>
+                <div class="footer-logo">
+                    <img src="assets/logo.svg" alt="$Bardo Logo">
+                    <span>$Bardo</span>
+                </div>
+                <div class="footer-nav">
+                    <a href="#token">Token</a>
+                    <a href="#how-to-buy">How to buy</a>
+                    <a href="#media">Media</a>
+                    <a href="#roadmap">Roadmap</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-reddit"></i></a>
+                        <a href="#" class="social-link">
+                            <img src="assets/placeholder.txt" alt="Twitter">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="assets/placeholder.txt" alt="Telegram">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="assets/placeholder.txt" alt="Discord">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="assets/placeholder.txt" alt="Instagram">
+                        </a>
                     </div>
+                    <button class="footer-cta">Get $Bardo</button>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#token">Token Info</a></li>
-                        <li><a href="#how-to-buy">How to Buy</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#roadmap">Roadmap</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Whitepaper</a></li>
-                        <li><a href="#">Audit Report</a></li>
-                        <li><a href="#">Community Guidelines</a></li>
-                        <li><a href="#">Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 $BARDO. Rock to Blockchain Rhythm. Built with <i class="fas fa-heart"></i> and Docker</p>
             </div>
         </div>
     </footer>
-
-    <!-- Video Modal -->
-    <div class="video-modal" id="videoModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="video-container">
-                <video id="modalVideo" controls>
-                    <source src="" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-    </div>
 
     <script src="js/script.js"></script>
 </body>
