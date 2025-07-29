@@ -86,6 +86,24 @@ function copyContractAddress() {
     });
 }
 
+// Copy token address
+function copyTokenAddress() {
+    const tokenAddress = document.querySelector('.address-text span').textContent;
+    navigator.clipboard.writeText(tokenAddress).then(() => {
+        showNotification('Token address copied to clipboard!', 'success');
+    }).catch(() => {
+        showNotification('Failed to copy address', 'error');
+    });
+}
+
+// Add event listener for token address copy button
+document.addEventListener('DOMContentLoaded', () => {
+    const copyButton = document.querySelector('.copy-button');
+    if (copyButton) {
+        copyButton.addEventListener('click', copyTokenAddress);
+    }
+});
+
 // Step cards flip animation
 document.querySelectorAll('.step-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -225,14 +243,112 @@ document.querySelectorAll('.fret-marker').forEach((marker, index) => {
 // Marquee text effect
 const marqueeContent = document.querySelector('.marquee-content');
 if (marqueeContent) {
+    // Tạo hiệu ứng carousel thực sự
+    function createCarouselEffect() {
+        const itemWidth = 150; // Chiều rộng mỗi item
+        const containerWidth = marqueeContent.parentElement.offsetWidth;
+        
+        // Xóa tất cả item hiện tại
+        marqueeContent.innerHTML = '';
+        
+        // Tính toán số item cần thiết để lấp đầy container (3x để đảm bảo seamless ở cả hai chiều)
+        const neededItems = Math.ceil((containerWidth * 3) / itemWidth);
+        
+        // Tạo đủ item
+        for (let i = 0; i < neededItems; i++) {
+            const newItem = document.createElement('div');
+            newItem.className = 'marquee-item';
+            newItem.innerHTML = `
+                <img src="assets/logo.svg" alt="Bardo Logo" class="marquee-logo">
+                <span>$BARDO</span>
+            `;
+            marqueeContent.appendChild(newItem);
+        }
+    }
+    
+    // Chạy khi trang load và khi resize
+    createCarouselEffect();
+    window.addEventListener('resize', createCarouselEffect);
+    
     marqueeContent.addEventListener('mouseenter', () => {
         marqueeContent.style.animationPlayState = 'paused';
+        // Also pause logo spinning
+        const logos = marqueeContent.querySelectorAll('.marquee-logo');
+        logos.forEach(logo => {
+            logo.style.animationPlayState = 'paused';
+        });
     });
     
     marqueeContent.addEventListener('mouseleave', () => {
         marqueeContent.style.animationPlayState = 'running';
+        // Resume logo spinning
+        const logos = marqueeContent.querySelectorAll('.marquee-logo');
+        logos.forEach(logo => {
+            logo.style.animationPlayState = 'running';
+        });
     });
+    
+    // Add click effect to marquee items
+    const marqueeItems = marqueeContent.querySelectorAll('.marquee-item');
+    marqueeItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Create a ripple effect
+            const ripple = document.createElement('div');
+            ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(0, 255, 0, 0.3);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                pointer-events: none;
+            `;
+            
+            const rect = item.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (rect.width / 2 - size / 2) + 'px';
+            ripple.style.top = (rect.height / 2 - size / 2) + 'px';
+            
+            item.style.position = 'relative';
+            item.appendChild(ripple);
+            
+            setTimeout(() => {
+                if (ripple.parentNode) {
+                    ripple.parentNode.removeChild(ripple);
+                }
+            }, 600);
+        });
+    });
+    
+    // Thêm hiệu ứng chuyển chiều mượt mà
+    marqueeContent.addEventListener('animationiteration', () => {
+        console.log('Animation iteration completed - direction changed');
+    });
+    
+    // Theo dõi animation để debug
+    let animationStartTime = Date.now();
+    setInterval(() => {
+        const elapsed = (Date.now() - animationStartTime) / 1000;
+        const currentTransform = marqueeContent.style.transform;
+        console.log(`Time: ${elapsed.toFixed(1)}s, Transform: ${currentTransform}`);
+        
+        if (elapsed > 20) {
+            animationStartTime = Date.now();
+        }
+    }, 1000);
 }
+
+// Add ripple animation to CSS
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyle);
 
 // Stage lights animation
 function animateStageLights() {
