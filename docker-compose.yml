@@ -21,22 +21,22 @@ services:
       - web-network
 
   # Optional: Thêm database nếu cần
-  db:
-    image: mysql:8.0
-    container_name: bardo-db
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-    volumes:
-      - db_data:/var/lib/mysql
-    networks:
-      - web-network
-    restart: unless-stopped
+  # db:
+  #   image: mysql:8.0
+  #   container_name: bardo-db
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+  #     MYSQL_DATABASE: ${DB_NAME}
+  #     MYSQL_USER: ${DB_USER}
+  #     MYSQL_PASSWORD: ${DB_PASSWORD}
+  #   volumes:
+  #     - db_data:/var/lib/mysql
+  #   networks:
+  #     - web-network
+  #   restart: unless-stopped
 
-volumes:
-  db_data:
+# volumes:
+#   db_data:
 
 networks:
   web-network:

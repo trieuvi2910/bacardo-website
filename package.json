@@ -6,8 +6,10 @@
   "scripts": {
     "start": "npx serve src -p 8000",
     "dev": "npx live-server src --port=8000 --open=/index.html",
-    "build": "echo 'No build process needed for static site'",
+    "build": "bash scripts/netlify-build.sh",
+    "build:netlify": "npm run build",
     "deploy": "echo 'Deploy to your preferred hosting service'",
+    "deploy:netlify": "netlify deploy --prod --dir=build",
     "lint": "echo 'No linting configured for static site'",
     "test": "echo 'No tests configured'"
   },
