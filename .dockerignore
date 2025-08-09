@@ -1,13 +1,17 @@
-# .dockerignore
-node_modules
-npm-debug.log
+# .dockerignore - Optimized for VPS
 .git
 .gitignore
 README.md
+VPS-SETUP.md
 .env
-.nyc_output
-coverage
-.nyc_output
 *.log
 .DS_Store
-Thumbs.db 
+Thumbs.db
+node_modules
+npm-debug.log
+.nyc_output
+coverage
+logs/
+backup/
+*.md
+!README.md 

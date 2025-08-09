@@ -1,290 +1,246 @@
-# $Bardo - Rocking to Blockchain Rhythm 🎸
+# Bardo Website - Multi-Project Support
 
-A modern, responsive cryptocurrency website for $Bardo token, featuring a dark theme with neon accents and interactive elements. Built with HTML5, CSS3, and vanilla JavaScript.
-
-![$Bardo Website](https://img.shields.io/badge/Status-Live-brightgreen)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-
-## 🎯 Features
-
-### ✨ Design & UI
-- **Dark Theme**: Sleek dark background with neon purple and cyan accents
-- **Responsive Design**: Fully responsive across all devices (desktop, tablet, mobile)
-- **Modern Typography**: Big Shoulders Display font family for bold, impactful text
-- **Smooth Animations**: CSS animations and transitions for enhanced user experience
-- **Glass Morphism**: Backdrop blur effects and transparent elements
-
-### 🎮 Interactive Elements
-- **Flip Cards**: Interactive step cards with 3D flip animations
-- **Expandable Roadmap**: Click-to-expand timeline sections
-- **Music Player**: Interactive music player controls with hover effects
-- **Copy Functionality**: One-click copy for token addresses
-- **Smooth Scrolling**: Seamless navigation between sections
-
-### 📱 Mobile Optimized
-- **Mobile Menu**: Hamburger menu for mobile navigation
-- **Touch Interactions**: Optimized for touch devices
-- **Responsive Grid**: Adaptive layouts for different screen sizes
-- **Performance**: Optimized loading and smooth scrolling
-
-### 🎨 Visual Effects
-- **Neon Glow**: Glowing effects on buttons and interactive elements
-- **Parallax Scrolling**: Subtle parallax effects for depth
-- **Hover Animations**: Interactive hover states throughout
-- **Loading States**: Smooth loading transitions
+A revolutionary token project website built with HTML, CSS, and JavaScript, optimized for VPS deployment with multi-project support.
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Local web server (optional, for development)
+### Single Project
+```bash
+# Start with default settings (port 8080, project name: bardo-website)
+./start-project.sh
 
-### Installation
+# Start with custom name and port
+./start-project.sh my-project 8081
+./start-project.sh another-project 8082
+./start-project.sh whatever-name-you-want 8083
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/bardo-website.git
-   cd bardo-website
-   ```
+### Multiple Projects
+```bash
+# Project 1
+cd bardo-website
+./start-project.sh bardo-website 8080
 
-2. **Open the project**
-   ```bash
-   # Using Python (if installed)
-   python -m http.server 8000
-   
-   # Using Node.js (if installed)
-   npx serve src
-   
-   # Or simply open src/index.html in your browser
-   ```
+# Project 2
+cd ../my-project
+./start-project.sh my-project 8081
 
-3. **View the website**
-   - Navigate to `http://localhost:8000` (if using server)
-   - Or open `src/index.html` directly in your browser
+# Project 3
+cd ../another-project
+./start-project.sh another-project 8082
+```
 
-## 📁 Project Structure
+## 🏗️ Architecture
 
+### Single Project
+```
+Internet → VPS (Port 8080) → Docker Container
+```
+
+### Multiple Projects
+```
+Project 1 (bardo-website) → Port 8080
+Project 2 (my-project)     → Port 8081
+Project 3 (another-project) → Port 8082
+```
+
+### Optimized for VPS
+- **Single container per project**: Simple nginx-based setup
+- **Configurable ports**: Each project runs on different port
+- **Flexible naming**: Use ANY project name you want
+- **No volumes**: All files included in image
+- **Security headers**: XSS protection, frame options, content type sniffing
+- **Performance**: Gzip compression, caching, optimized static file serving
+- **Health checks**: Automatic health monitoring
+
+### File Structure
 ```
 bardo-website/
 ├── src/
-│   ├── index.html          # Main HTML file
-│   ├── css/
-│   │   └── style.css       # Main stylesheet
-│   ├── js/
-│   │   └── script.js       # JavaScript functionality
-│   └── assets/             # Images and media files
-│       ├── logo.svg
-│       ├── hero.png
-│       ├── token1.png
-│       ├── token2.png
-│       ├── token3.png
-│       ├── copy.png
-│       ├── diamon.png
-│       ├── at.png
-│       ├── 2.png
-│       ├── 3.png
-│       └── placeholder.txt
-├── README.md               # Project documentation
-└── .gitignore             # Git ignore file
+│   ├── assets/          # Images and static assets
+│   ├── css/            # Stylesheets
+│   ├── js/             # JavaScript files
+│   ├── music/          # Audio files
+│   └── index.html      # Main HTML file
+├── docker-compose.yml  # Multi-project configuration
+├── Dockerfile          # Optimized for VPS
+├── nginx.conf          # Production nginx config
+├── start-project.sh    # Start project script
+├── stop-project.sh     # Stop project script
+├── manage-projects.sh  # Advanced project management
+├── MULTI-PROJECT-SETUP.md # Multi-project guide
+└── README.md           # This file
 ```
 
-## 🎨 Design System
+## 🔧 Configuration
 
-### Color Palette
-- **Primary Background**: `#090c1c` (Dark Blue)
-- **Secondary Background**: `#0f0a28` (Darker Blue)
-- **Neon Purple**: `#8e2de2` (Purple Accent)
-- **Neon Cyan**: `#00ffff` (Cyan Accent)
-- **Neon Pink**: `#ff2e63` (Pink Accent)
-- **White Text**: `#f8f8ff` (Off White)
+### Environment Variables
+- `PROJECT_NAME`: Project name (default: bardo-website) - **You can use ANY name!**
+- `PORT`: Port number (default: 8080)
 
-### Typography
-- **Primary Font**: Big Shoulders Display (Google Fonts)
-- **Weights**: 400 (Regular), 700 (Bold), 800 (Extra Bold), 900 (Black)
-- **Fallback**: Sans-serif
-
-### Spacing
-- **Container Max Width**: 1200px
-- **Section Padding**: 100px vertical
-- **Element Gaps**: 20px, 40px, 60px (responsive)
-
-## 🎯 Sections Overview
-
-### 1. Navigation
-- Fixed header with backdrop blur
-- Logo and navigation links
-- CTA button with neon glow effect
-
-### 2. Hero Section
-- Full-screen video/background
-- "LIVE NOW" badge
-- Concert information
-- Buy Now button
-
-### 3. Token Section
-- Token information card
-- Contract address with copy functionality
-- Platform links (Pump Fun, Raydium, Dexscreener)
-- Token features display
-
-### 4. How to Buy
-- Interactive step cards with flip animations
-- 4-step process visualization
-- Arrow indicators between steps
-
-### 5. Media Gallery
-- Grid layout with featured item
-- Play button overlay
-- See More button
-
-### 6. Tokenomics
-- Tokenomics information display
-- Interactive music player
-- Background image integration
-
-### 7. Roadmap
-- Timeline layout with expandable sections
-- Phase information with dates
-- Click-to-expand functionality
-
-### 8. Footer
-- Logo and navigation links
-- Social media icons
-- CTA button
-
-## 🛠️ Customization
-
-### Adding New Sections
-1. Add HTML structure in `index.html`
-2. Add corresponding CSS in `style.css`
-3. Add JavaScript functionality in `script.js`
-
-### Modifying Colors
-Update CSS custom properties in `style.css`:
-```css
-:root {
-    --primary-bg: #090c1c;
-    --neon-purple: #8e2de2;
-    --neon-cyan: #00ffff;
-    --neon-pink: #ff2e63;
-}
+### Docker Compose
+```yaml
+version: '3.8'
+services:
+  website:
+    build: .
+    container_name: ${PROJECT_NAME:-bardo-website}  # Uses your custom name
+    ports:
+      - "${PORT:-8080}:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      - PROJECT_NAME=${PROJECT_NAME:-bardo-website}
+      - PORT=${PORT:-8080}
 ```
 
-### Adding Animations
-Use the existing animation classes or create new ones:
-```css
-.animate-in {
-    animation: fadeInUp 0.6s ease forwards;
-}
+## 🛠️ Management Commands
+
+### Start Project
+```bash
+# Default (bardo-website on port 8080)
+./start-project.sh
+
+# Custom project name and port
+./start-project.sh my-project 8081
+./start-project.sh another-project 8082
+./start-project.sh whatever-name-you-want 8083
 ```
 
-## 📱 Browser Support
+### Stop Project
+```bash
+# Stop current project
+./stop-project.sh
 
-- ✅ Chrome (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-- ✅ Mobile browsers
+# Stop specific project
+./stop-project.sh my-project
+```
 
-## 🚀 Performance Features
+### Check Status
+```bash
+# Check current project
+docker-compose ps
 
-- **Optimized Images**: Compressed and optimized assets
-- **CSS Animations**: Hardware-accelerated animations
-- **Smooth Scrolling**: Native smooth scroll behavior
-- **Lazy Loading**: Images load as needed
-- **Minified Code**: Production-ready code structure
+# Check all projects
+docker ps | grep -E "(bardo-website|my-project|another-project)"
+```
 
-## 🎵 Interactive Features
+### View Logs
+```bash
+# View logs for current project
+docker-compose logs -f
 
-### Step Cards
-- Click to flip and reveal additional information
-- Hover effects for enhanced interaction
-- Mobile touch support
+# View logs for specific container
+docker logs -f container-name
+```
 
-### Music Player
-- Play/pause functionality
-- Control buttons with hover effects
-- Visual feedback on interaction
+## 🔒 Security Features
 
-### Copy Functionality
-- One-click copy for addresses
-- Visual feedback with animations
-- Cross-browser compatibility
+- **Security headers**: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection
+- **Hidden nginx version**: server_tokens off
+- **Denied access to hidden files**: Location ~ /\. { deny all; }
+- **Optimized static file serving**: Proper caching and compression
+- **Health checks**: Automatic monitoring and restart
 
-### Expandable Roadmap
-- Click to expand/collapse sections
-- Smooth height transitions
-- Maintains timeline visual flow
+## 📊 Performance Optimizations
 
-## 🔧 Development
+- **Gzip compression**: Enabled for text-based files
+- **Static file caching**: 1-year cache for static assets
+- **Sendfile optimization**: Efficient file serving
+- **TCP optimizations**: nopush, nodelay for better performance
+- **Resource monitoring**: Health checks and logging
 
-### Local Development
-1. Clone the repository
-2. Open `src/index.html` in your browser
-3. Use browser dev tools for debugging
-4. Make changes and refresh to see updates
+## 🎯 Multi-Project Setup
 
-### Code Style
-- **HTML**: Semantic HTML5 structure
-- **CSS**: BEM methodology for class naming
-- **JavaScript**: ES6+ features with fallbacks
+### Creating New Project
 
-### File Organization
-- **HTML**: Semantic structure with clear sections
-- **CSS**: Organized by component and responsive breakpoints
-- **JavaScript**: Modular functions with clear naming
+1. **Create project directory**
+   ```bash
+   mkdir my-new-project
+   cd my-new-project
+   ```
 
-## 🎨 Design Principles
+2. **Copy template files**
+   ```bash
+   cp -r ../bardo-website/* .
+   ```
 
-### Accessibility
-- Semantic HTML structure
-- Keyboard navigation support
-- Focus management
-- Screen reader compatibility
+3. **Start project with ANY name you want**
+   ```bash
+   ./start-project.sh my-new-project 8083
+   ./start-project.sh whatever-name 8084
+   ./start-project.sh cool-project 8085
+   ```
 
-### User Experience
-- Intuitive navigation
-- Clear call-to-actions
-- Responsive design
-- Fast loading times
+4. **Access project**
+   - Open `http://localhost:8083` (or whatever port you chose)
 
-### Visual Hierarchy
-- Clear typography scale
-- Consistent spacing
-- Logical content flow
-- Visual feedback on interactions
+### Project Management
 
-## 📈 Future Enhancements
+```bash
+# List all running projects
+docker ps --format "table {{.Names}}\t{{.Ports}}\t{{.Status}}"
 
-- [ ] Video integration for hero section
-- [ ] Real-time token price display
-- [ ] Social media feed integration
-- [ ] Multi-language support
-- [ ] Dark/light theme toggle
-- [ ] Advanced animations
-- [ ] PWA capabilities
-- [ ] Analytics integration
+# Start multiple projects with different names
+cd bardo-website && ./start-project.sh bardo-website 8080
+cd ../my-project && ./start-project.sh my-project 8081
+cd ../cool-project && ./start-project.sh cool-project 8082
 
-## 🤝 Contributing
+# Stop multiple projects
+cd bardo-website && ./stop-project.sh
+cd ../my-project && ./stop-project.sh
+cd ../cool-project && ./stop-project.sh
+```
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test across different browsers
-5. Submit a pull request
+## 🔄 Updates
 
-## 📄 License
+To update a project:
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+1. **Pull latest changes**
+   ```bash
+   git pull origin main
+   ```
 
-## 🎸 About $Bardo
+2. **Rebuild and restart**
+   ```bash
+   ./stop-project.sh
+   ./start-project.sh my-project 8081
+   ```
 
-$Bardo is a cryptocurrency token that combines the energy of rock music with blockchain technology. The website reflects this unique fusion with its bold design, interactive elements, and rock-inspired aesthetic.
+## 📝 Notes
 
----
+- **Project names are flexible**: You can use ANY name you want!
+- Each project runs on its own port
+- All static files are cached for 1 year
+- Security headers are automatically added
+- Containers restart automatically if they crash
+- No persistent storage required (all files in image)
+- Health checks monitor container status
+- Ready for production deployment on VPS
 
-**Built with ❤️ and 🎸 for the $Bardo community**
+## 📚 Documentation
 
-*Rock to Blockchain Rhythm* 🤘 
+- [Multi-Project Setup Guide](MULTI-PROJECT-SETUP.md) - Detailed guide for managing multiple projects
+- [VPS Setup Guide](VPS-SETUP.md) - VPS deployment instructions
+- [Cloudflare Zero Trust Guide](CLOUDFLARE-ZERO-TRUST.md) - Cloudflare integration
+
+## 🎯 Production Checklist
+
+- [ ] Domain configured (optional)
+- [ ] Cloudflare Zero Trust setup (recommended)
+- [ ] Firewall configured (ports open)
+- [ ] Monitoring setup (optional)
+- [ ] Backup strategy (optional)
+- [ ] Multi-project ports documented
+- [ ] Health checks configured
+- [ ] Security headers enabled 
