@@ -2,6 +2,13 @@ import { NextRequest, NextResponse } from 'next/server'
 import { readFile, writeFile } from 'fs/promises'
 import { join } from 'path'
 
+interface ImageMetadata {
+  [key: string]: {
+    isPublic: boolean;
+    uploadedAt: string;
+  };
+}
+
 // Path to the metadata file
 const metadataPath = join(process.cwd(), 'public', 'uploads', 'metadata.json')
 
@@ -23,7 +30,7 @@ export async function PATCH(
     const { isPublic } = await request.json()
 
     // Read existing metadata
-    let metadata = {}
+    let metadata: ImageMetadata = {}
     try {
       const metadataContent = await readFile(metadataPath, 'utf-8')
       metadata = JSON.parse(metadataContent)
@@ -36,7 +43,10 @@ export async function PATCH(
     if (metadata[id]) {
       metadata[id].isPublic = isPublic
     } else {
-      metadata[id] = { isPublic }
+      metadata[id] = { 
+        isPublic, 
+        uploadedAt: new Date().toISOString() 
+      }
     }
 
     // Write updated metadata back to file
