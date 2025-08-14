@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
         const buffer = Buffer.from(bytes)
 
         // Process image based on file type
-        let processedBuffer = buffer
+        let processedBuffer: Buffer = buffer
         let fileExtension = 'jpg'
         let shouldCompress = true
         
@@ -136,9 +136,10 @@ export async function POST(request: NextRequest) {
             }
 
             // Compress image to JPEG
-            processedBuffer = await image
+            const sharpBuffer = await image
               .jpeg({ quality: COMPRESSION_QUALITY })
               .toBuffer()
+            processedBuffer = Buffer.from(sharpBuffer)
 
             console.log(`Compressed ${file.name}: ${(buffer.length / 1024 / 1024).toFixed(2)}MB → ${(processedBuffer.length / 1024 / 1024).toFixed(2)}MB`)
           } catch (compressionError) {
