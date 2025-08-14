@@ -1,17 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ['localhost'],
-    unoptimized: true,
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/api/upload',
-        destination: '/api/upload',
-      },
-    ];
-  },
-}
+    output: "standalone",
+    images: {
+        domains: ["localhost"],
+        unoptimized: true,
+    },
+    async rewrites() {
+        return [
+            {
+                source: "/api/upload",
+                destination: "/api/upload",
+            },
+        ];
+    },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
