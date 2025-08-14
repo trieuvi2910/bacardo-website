@@ -2,7 +2,7 @@
 const nextConfig = {
     output: "standalone",
     images: {
-        domains: ["localhost"],
+        domains: ["https://barcado.9fstudio.com"],
         unoptimized: true,
     },
     async rewrites() {
