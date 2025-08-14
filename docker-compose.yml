@@ -1,25 +1,30 @@
-# docker-compose.yml - Single project configuration
-# Change PORT environment variable for different projects
 version: '3.8'
 
 services:
-  website:
-    build: .
-    container_name: ${PROJECT_NAME:-bardo-website}
+  bardo-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "${PORT:-8080}:80"
+      - "3002:3000"  # Port cho dự án Game Reward
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
     restart: unless-stopped
+    container_name: bardo-website
+    networks:
+      - reward-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-    environment:
-      - PROJECT_NAME=${PROJECT_NAME:-bardo-website}
-      - PORT=${PORT:-8080} 
+    # Uncomment the following lines if you want to use environment variables
+    env_file:
+      #- .env.local
+      - .env.production
+
+networks:
+  reward-network:
+    driver: bridge
