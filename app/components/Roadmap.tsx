@@ -48,7 +48,7 @@ export default function Roadmap() {
             <img src="/assets/5a4b957fe066711a1db5c40e4ba2d3667c9f9cb0.jpg" alt="Phase I Background" />
           </div>
           <div className="phase-content right-side">
-            <h3>Phase I: Rock in the Trenches</h3>
+            <h3>Phase I: Rockstar on the stage, trenches rocking galore</h3>
             <p className="phase-date">July 2025</p>
             <button className="btn-expand">Click to expand</button>
           </div>
@@ -57,7 +57,7 @@ export default function Roadmap() {
         {/* Phase II */}
         <div className="phase-2">
           <div className="phase-content left-side">
-            <h3>Phase II: Rockstar Parade in the Jungle</h3>
+            <h3>Phase II: Rockstar Parade in the Meme Jungle where coins roar</h3>
             <p className="phase-date">July 2025</p>
             <button className="btn-expand">Click to expand</button>
           </div>
@@ -72,7 +72,7 @@ export default function Roadmap() {
             <img src="/assets/3f1e7c13543072cd50d33b41c14d8605600f84f1.jpg" alt="Phase III Background" />
           </div>
           <div className="phase-content right-side">
-            <h3>Phase III: Rock to Blockchain Rhythm</h3>
+            <h3>Phase III: Nakamoto Beats got the Meme Jungle rocking to blockchain rhythm</h3>
             <p className="phase-date">July 2025</p>
             <button className="btn-expand">Click to expand</button>
           </div>
@@ -81,7 +81,7 @@ export default function Roadmap() {
         {/* Phase IV */}
         <div className="phase-4">
           <div className="phase-content left-side">
-            <h3>Phase IV: Rock to Decentralize Skies</h3>
+            <h3>Phase IV: Rockstar Parade & meme energy powering rockets across decentralized skies</h3>
             <p className="phase-date">July 2025</p>
             <button className="btn-expand">Click to expand</button>
           </div>

@@ -26,8 +26,11 @@ const defaultImages = [
 
 export default function MediaGallery() {
     const [publicImages, setPublicImages] = useState<GalleryImage[]>([]);
+    const [allPublicImages, setAllPublicImages] = useState<GalleryImage[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [showModal, setShowModal] = useState(false);
+    const [isLoadingAll, setIsLoadingAll] = useState(false);
 
     useEffect(() => {
         const fetchPublicImages = async () => {
@@ -53,6 +56,39 @@ export default function MediaGallery() {
 
         fetchPublicImages();
     }, []);
+
+    // Function to fetch all public images for modal
+    const fetchAllPublicImages = async () => {
+        try {
+            setIsLoadingAll(true);
+            const response = await fetch("/api/gallery/public/all");
+
+            if (response.ok) {
+                const data = await response.json();
+                setAllPublicImages(data.images || []);
+                console.log(`Fetched ${data.images?.length || 0} public images for modal`);
+            } else {
+                console.warn("Failed to fetch all public images");
+                setAllPublicImages([]);
+            }
+        } catch (error) {
+            console.error("Error fetching all public images:", error);
+            setAllPublicImages([]);
+        } finally {
+            setIsLoadingAll(false);
+        }
+    };
+
+    // Function to open modal and fetch all images
+    const handleSeeMore = async () => {
+        setShowModal(true);
+        await fetchAllPublicImages();
+    };
+
+    // Function to close modal
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
     // Combine public images with default images to ensure we have 5 images
     const displayImages = [...publicImages];
@@ -124,9 +160,191 @@ export default function MediaGallery() {
                     </div>
                 </div>
             </div>
+            
             <div className="gallery-footer">
-                <button className="btn btn-gradient">SEE MORE</button>
+                <button className="btn btn-gradient" onClick={handleSeeMore}>
+                    SEE MORE
+                </button>
             </div>
+
+            {/* Gallery Modal */}
+            {showModal && (
+                <div 
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: 'rgba(0, 0, 0, 0.9)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 1000,
+                        padding: '20px'
+                    }}
+                    onClick={handleCloseModal}
+                >
+                    <div 
+                        style={{
+                            background: '#0f0a28',
+                            borderRadius: '20px',
+                            maxWidth: '90vw',
+                            maxHeight: '90vh',
+                            width: '100%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            overflow: 'hidden',
+                            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)'
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Modal Header */}
+                        <div style={{
+                            padding: '20px 30px',
+                            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            background: 'rgba(0, 0, 0, 0.2)'
+                        }}>
+                            <p style={{
+                                color: '#cbd5e1',
+                                margin: 0,
+                                fontSize: '14px'
+                            }}>
+                                Showing {allPublicImages.length} public images
+                            </p>
+                            <button 
+                                onClick={handleCloseModal}
+                                style={{
+                                    background: 'none',
+                                    border: 'none',
+                                    color: '#cbd5e1',
+                                    cursor: 'pointer',
+                                    padding: '8px',
+                                    borderRadius: '50%',
+                                    transition: 'all 0.3s ease',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}
+                            >
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div style={{
+                            padding: '30px',
+                            height: 'calc(100vh - 120px)',
+                            overflowY: 'auto',
+                            flex: 1,
+                            maxHeight: 'calc(100vh - 170px)',
+                            overflowX: 'hidden',
+                            marginBottom: '30px'
+                        }}>
+                            {isLoadingAll ? (
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    padding: '60px 20px',
+                                    color: '#cbd5e1'
+                                }}>
+                                    <div style={{
+                                        width: '40px',
+                                        height: '40px',
+                                        border: '4px solid rgba(79, 0, 224, 0.2)',
+                                        borderTop: '4px solid #8f00ff',
+                                        borderRadius: '50%',
+                                        animation: 'spin 1s linear infinite',
+                                        marginBottom: '20px'
+                                    }}></div>
+                                    <p>Loading all images...</p>
+                                </div>
+                            ) : allPublicImages.length === 0 ? (
+                                <div style={{
+                                    textAlign: 'center',
+                                    padding: '60px 20px',
+                                    color: '#cbd5e1'
+                                }}>
+                                    <p style={{
+                                        fontSize: '20px',
+                                        fontWeight: '600',
+                                        marginBottom: '10px'
+                                    }}>No public images found</p>
+                                    <p style={{
+                                        fontSize: '14px',
+                                        opacity: '0.7'
+                                    }}>Images will appear here once they are marked as public in the admin panel</p>
+                                </div>
+                            ) : (
+                                <div style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                                    gap: '25px',
+                                    padding: '10px'
+                                }}>
+                                    {allPublicImages.map((image) => (
+                                        <div key={image.id} style={{
+                                            background: 'rgba(255, 255, 255, 0.05)',
+                                            borderRadius: '15px',
+                                            overflow: 'hidden',
+                                            transition: 'all 0.3s ease',
+                                            border: '1px solid rgba(79, 0, 224, 0.2)'
+                                        }}>
+                                            <img 
+                                                src={image.path} 
+                                                alt={image.originalName || image.filename} 
+                                                loading="lazy"
+                                                style={{
+                                                    width: '100%',
+                                                    height: '200px',
+                                                    objectFit: 'cover',
+                                                    display: 'block'
+                                                }}
+                                            />
+                                            <div style={{ padding: '15px' }}>
+                                                <p style={{
+                                                    color: '#f8f8ff',
+                                                    fontWeight: '600',
+                                                    margin: '0 0 8px 0',
+                                                    fontSize: '14px',
+                                                    whiteSpace: 'nowrap',
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis'
+                                                }}>
+                                                    {image.originalName || image.filename}
+                                                </p>
+                                                <p style={{
+                                                    color: '#00ffff',
+                                                    fontSize: '13px',
+                                                    margin: 0,
+                                                    opacity: '0.9',
+                                                    fontWeight: '500'
+                                                }}>
+                                                    {new Date(image.uploadedAt).toLocaleDateString()}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <style jsx>{`
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `}</style>
         </section>
     );
 }

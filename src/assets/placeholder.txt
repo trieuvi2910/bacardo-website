@@ -1,9 +1,0 @@
-# Assets Directory
-
-This directory is for storing static assets like:
-- Images (PNG, JPG, SVG, etc.)
-- Icons
-- Fonts
-- Other media files
-
-Place your assets here and reference them in your HTML/CSS files. 

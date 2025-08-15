@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       <div className="hero-container">
         <button className="btn btn-gradient">Buy Now</button>
         <div className="hero-content">
