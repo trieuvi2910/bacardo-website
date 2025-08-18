@@ -275,7 +275,7 @@ export default function Header({ isWalletConnected, onWalletConnect }: HeaderPro
                         <h2>$Bardo</h2>
                     </div>
                     <ul className="nav-menu">
-                        <li>
+                        {/* <li>
                             <a
                                 href="#hero"
                                 className={activeSection === "hero" ? "active" : ""}
@@ -286,7 +286,7 @@ export default function Header({ isWalletConnected, onWalletConnect }: HeaderPro
                             >
                                 Home
                             </a>
-                        </li>
+                        </li> */}
                         <li>
                             <a
                                 href="#how-to-buy"
