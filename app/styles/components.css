@@ -2980,8 +2980,7 @@ h6 {
 /* Footer */
 .footer {
     position: relative;
-    height: 270px;
-    width: 100%;
+    width: 50%;
     max-width: 1920px;
     background: var(--bg-primary);
     margin: 0 auto;
@@ -2990,15 +2989,15 @@ h6 {
 .footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0px 160px;
     height: 100%;
 }
 
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 32.166px;
+    justify-content: flex-start;
+    gap: 16px;
+    flex-direction: column;
 }
 
 .footer-logo img {
@@ -3017,25 +3016,9 @@ h6 {
 
 .footer-links {
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
     gap: 16px;
-    margin-top: 43.275px;
-    width: 20%;
+    width: 40%;
     flex-wrap: wrap;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12.622px;
-}
-
-.footer-links li {
-    margin: 0;
 }
 
 .footer-links a {
@@ -3044,7 +3027,7 @@ h6 {
     font-size: 28.85px;
     color: var(--text-primary);
     text-decoration: none;
-    line-height: normal;
+    line-height: 32px;
     transition: color var(--transition-normal);
     width: 45%;
 }
@@ -3058,7 +3041,6 @@ h6 {
     flex-direction: column;
     gap: 30.653px;
     align-self: flex-start;
-    margin-top: 45.078px;
     width: 238.013px;
 }
 
@@ -3120,15 +3102,65 @@ h6 {
     transform: translateY(-2px);
     box-shadow: 0 0 30px 0 rgba(255, 0, 255, 0.7);
 }
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
-.footer-copyright {
+.footer-logo-container img {
+    width: 163.785px;
+    height: 165.912px;
+    object-fit: contain;
+}
+
+.footer-logo-container h2 {
     font-family: var(--font-primary);
     font-weight: 700;
+    font-size: 85.776px;
+    color: var(--text-primary);
+    line-height: normal;
+}
+
+.footer-links-hits {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.footer-links-hits img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.footer-copyright {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text-primary);
+    line-height: normal;
+    padding: 24px 0px;
+}
+.footer-copyright a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
     font-size: 16px;
     color: var(--text-primary);
     line-height: normal;
     text-align: center;
     padding: 24px 0px;
+    text-decoration: none;
+    transition: all 0.5s var(--transition-normal);
+}
+.footer-copyright a:hover {
+    text-decoration: underline;
+}
+.footer-disclaimer {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding: 24px 0px;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 /* Wallet Connection Styles */

@@ -9,28 +9,27 @@ export default function Footer({ isWalletConnected, onWalletConnect }: FooterPro
             <div className="footer-container">
                 <div className="footer-logo">
                     <img src="/assets/logo.png" alt="$Bardo Logo" />
-                    <h2>$Bardo</h2>
+                    <div className="footer-links-hits">
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            <img src="/assets/youtube.png" alt="Youtube" />
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            <img src="/assets/spotify.png" alt="Spotify" />
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            <img src="/assets/music.png" alt="Apple Music" />
+                        </a>
+                    </div>
                 </div>
                 <div className="footer-links">
                     <a href="#how-to-buy">How to buy</a>
                     <a href="#token">Token</a>
                     <a href="#tokenomics">Tokenomics</a>
-                    <a href="#music">Music</a>
-                    <a href="#media">Media</a>
+                    <a href="#music">Bacardo Hits</a>
+                    <a href="#media">Gallery</a>
                     <a href="#roadmap">Roadmap</a>
                 </div>
-                <div className="footer-links">
-                    <ul>
-                        <li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#">Terms of Service</a>
-                        </li>
-                    </ul>
-                </div>
                 <div className="footer-social">
-                    <h3>Follow Us</h3>
                     <div className="social-icons">
                         <a href="https://t.me/Bacardocommunityofficial" target="_blank">
                             <img src="/assets/telegram.png" alt="Telegram" />
@@ -47,7 +46,21 @@ export default function Footer({ isWalletConnected, onWalletConnect }: FooterPro
                     </button>
                 </div>
             </div>
-            <p className="footer-copyright">© 2025 Bacardo. All rights reserved.</p>
+            <p className="footer-disclaimer">
+                $BARDO is a community-driven meme token with no promise of financial return or intrinsic value. Nothing
+                <br />
+                on this site constitues financial, legal, or tax advice. Do your own research and consult a professional adviser.
+            </p>
+            <p className="footer-copyright">
+                © 2025 Bacardo. All rights reserved. &nbsp;
+                <a href="https://www.bacardo.com/privacy-policy" target="_blank">
+                    Privacy Policy
+                </a>
+                &nbsp;&nbsp;
+                <a href="https://www.bacardo.com/terms-of-service" target="_blank">
+                    Terms of Service
+                </a>
+            </p>
         </footer>
     );
 }
