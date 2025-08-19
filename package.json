@@ -7,7 +7,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "npm run build && echo 'Build completed! Upload the out/ directory to your cPanel public_html folder.'",
+    "deploy:cpanel": "chmod +x deploy-cpanel.sh && ./deploy-cpanel.sh",
+    "check": "node check-build.js",
+    "build:check": "npm run build && npm run check",
+    "start:prod": "node server.js",
+    "deploy:nodejs": "npm run build && echo 'Build completed! Upload files and restart Node.js app in cPanel.'",
+    "migrate:wp": "chmod +x migrate-wordpress.sh && ./migrate-wordpress.sh"
   },
   "dependencies": {
     "fs-extra": "^11.2.0",
@@ -20,7 +27,8 @@
     "react-dropzone": "^14.2.3",
     "react-scroll": "^1.9.3",
     "sharp": "^0.33.5",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "compression": "^1.7.4"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",

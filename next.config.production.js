@@ -1,19 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Remove static export to enable API routes
-    // output: "export", // Commented out for API support
-    
+    output: "export",
+    trailingSlash: true,
     images: {
-        domains: ["localhost"],
-        unoptimized: false, // Enable image optimization
+        unoptimized: true,
     },
-    
-    // Enable server-side features
+    // Production optimizations
+    compress: true,
+    poweredByHeader: false,
+    generateEtags: false,
+    // Disable server-side features for static export
     experimental: {
         appDir: true,
     },
-    
-    // API routes configuration
+    // Ensure all routes are properly handled
     async rewrites() {
         return [
             {
@@ -22,7 +22,6 @@ const nextConfig = {
             },
         ];
     },
-    
     // Security headers
     async headers() {
         return [
