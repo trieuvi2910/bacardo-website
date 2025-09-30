@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "30002:3000"  # Port cho dự án bardo
+      - "127.0.0.1:30002:3000"  # Port cho dự án bardo
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
